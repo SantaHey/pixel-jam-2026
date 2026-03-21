@@ -17,7 +17,7 @@ var keys_state = {
 		"player" : 1,
 		"line" : 0,
 		"col" : 1,
-		"state" : false,
+		"state" : true,
 		"multiplicator" : 1,
 		"pressed" : false
 	},
@@ -58,7 +58,7 @@ var keys_state = {
 		"player" : 2,
 		"line" : 0,
 		"col" : 1,
-		"state" : false,
+		"state" : true,
 		"multiplicator" : 1,
 		"pressed" : false
 	},

@@ -20,6 +20,78 @@ offset_right = 321.0
 offset_bottom = 187.0
 color = Color(0, 0, 0, 1)
 
+[node name="Quest_j1" type="RichTextLabel" parent="." unique_id=713860676]
+offset_left = 6.0
+offset_top = 152.0
+offset_right = 152.0
+offset_bottom = 169.0
+theme_override_fonts/normal_font = ExtResource("2_h7id1")
+theme_override_font_sizes/normal_font_size = 9
+text = "AAAAA I'M QUESTING"
+
+[node name="Quest_j2" type="RichTextLabel" parent="." unique_id=1778784425]
+offset_left = 165.0
+offset_top = 152.0
+offset_right = 311.0
+offset_bottom = 169.0
+theme_override_fonts/normal_font = ExtResource("2_h7id1")
+theme_override_font_sizes/normal_font_size = 9
+text = "AAAAA I'M QUESTING"
+
+[node name="Score_j1" type="RichTextLabel" parent="." unique_id=1683367479]
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 70.0
+offset_bottom = 16.0
+theme_override_fonts/normal_font = ExtResource("2_h7id1")
+theme_override_font_sizes/normal_font_size = 8
+text = "SCORE:"
+
+[node name="Score_j2" type="RichTextLabel" parent="." unique_id=134949159]
+offset_left = 173.0
+offset_top = 3.0
+offset_right = 238.0
+offset_bottom = 16.0
+theme_override_fonts/normal_font = ExtResource("2_h7id1")
+theme_override_font_sizes/normal_font_size = 8
+text = "SCORE:"
+
+[node name="Timer_minutes" type="RichTextLabel" parent="." unique_id=133651036]
+offset_left = 139.0
+offset_top = 2.0
+offset_right = 170.0
+offset_bottom = 24.0
+theme_override_fonts/normal_font = ExtResource("2_h7id1")
+theme_override_font_sizes/normal_font_size = 12
+text = "00"
+
+[node name="Timer_seconds" type="RichTextLabel" parent="." unique_id=332598403]
+offset_left = 135.0
+offset_top = 17.0
+offset_right = 166.0
+offset_bottom = 39.0
+theme_override_fonts/normal_font = ExtResource("2_h7id1")
+theme_override_font_sizes/normal_font_size = 17
+text = "00"
+
+[node name="ProgressBar_j1" type="ProgressBar" parent="." unique_id=892281243]
+offset_left = 13.0
+offset_top = 40.0
+offset_right = 112.0
+offset_bottom = 47.0
+theme_override_styles/background = SubResource("StyleBoxFlat_h7id1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fbgld")
+show_percentage = false
+
+[node name="ProgressBar_j2" type="ProgressBar" parent="." unique_id=993566042]
+offset_left = 176.0
+offset_top = 40.0
+offset_right = 275.0
+offset_bottom = 47.0
+theme_override_styles/background = SubResource("StyleBoxFlat_h7id1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fbgld")
+show_percentage = false
+
 [node name="Key11" parent="." unique_id=1193465854 instance=ExtResource("1_h6jrl")]
 position = Vector2(29, 62)
 
@@ -198,75 +270,3 @@ offset_left = 124.0
 offset_top = 34.0
 offset_right = 169.0
 offset_bottom = 35.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=713860676]
-offset_left = 6.0
-offset_top = 152.0
-offset_right = 152.0
-offset_bottom = 169.0
-theme_override_fonts/normal_font = ExtResource("2_h7id1")
-theme_override_font_sizes/normal_font_size = 9
-text = "AAAAA I'M QUESTING"
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1778784425]
-offset_left = 165.0
-offset_top = 152.0
-offset_right = 311.0
-offset_bottom = 169.0
-theme_override_fonts/normal_font = ExtResource("2_h7id1")
-theme_override_font_sizes/normal_font_size = 9
-text = "AAAAA I'M QUESTING"
-
-[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=332598403]
-offset_left = 135.0
-offset_top = 17.0
-offset_right = 166.0
-offset_bottom = 39.0
-theme_override_fonts/normal_font = ExtResource("2_h7id1")
-theme_override_font_sizes/normal_font_size = 17
-text = "00"
-
-[node name="RichTextLabel5" type="RichTextLabel" parent="." unique_id=1683367479]
-offset_left = 5.0
-offset_top = 3.0
-offset_right = 70.0
-offset_bottom = 16.0
-theme_override_fonts/normal_font = ExtResource("2_h7id1")
-theme_override_font_sizes/normal_font_size = 8
-text = "SCORE:"
-
-[node name="RichTextLabel6" type="RichTextLabel" parent="." unique_id=134949159]
-offset_left = 173.0
-offset_top = 3.0
-offset_right = 238.0
-offset_bottom = 16.0
-theme_override_fonts/normal_font = ExtResource("2_h7id1")
-theme_override_font_sizes/normal_font_size = 8
-text = "SCORE:"
-
-[node name="RichTextLabel4" type="RichTextLabel" parent="." unique_id=133651036]
-offset_left = 139.0
-offset_top = 2.0
-offset_right = 170.0
-offset_bottom = 24.0
-theme_override_fonts/normal_font = ExtResource("2_h7id1")
-theme_override_font_sizes/normal_font_size = 12
-text = "00"
-
-[node name="ProgressBar2" type="ProgressBar" parent="." unique_id=892281243]
-offset_left = 13.0
-offset_top = 40.0
-offset_right = 112.0
-offset_bottom = 47.0
-theme_override_styles/background = SubResource("StyleBoxFlat_h7id1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_fbgld")
-show_percentage = false
-
-[node name="ProgressBar3" type="ProgressBar" parent="." unique_id=993566042]
-offset_left = 176.0
-offset_top = 40.0
-offset_right = 275.0
-offset_bottom = 47.0
-theme_override_styles/background = SubResource("StyleBoxFlat_h7id1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_fbgld")
-show_percentage = false

@@ -7,8 +7,11 @@ class_name Key_button
 var t_up
 var t_down
 
+var last = false
 var pressed = false
 var unlocked = false
+
+var multiplicator: float = 1.0
 
 var t = 0
 
@@ -29,8 +32,19 @@ func _process(delta: float) -> void:
 		unlocked = false
 	if t > 0.5:
 		unlocked = true
+	
+	if last != pressed and pressed:
+		_create_particles()
+	
+	last = pressed
 		
 	queue_redraw()
+	
+	
+func _create_particles() -> void:
+	# TODO look into particle emitter, modif with score
+	$CPUParticles2D.emitting = true
+	pass
 	
 func _draw() -> void:
 	var t_to_draw = t_down if pressed else t_up

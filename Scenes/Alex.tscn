@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bntk7mvrnnrfp"]
+
+[ext_resource type="Script" uid="uid://bhwr8iq87byst" path="res://Scenes/alex.gd" id="1_0dtjm"]
+
+[node name="Alex" type="Node2D" unique_id=1560869332]
+script = ExtResource("1_0dtjm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=890319554]
+offset_right = 1022.0
+offset_bottom = 623.0

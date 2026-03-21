@@ -1,6 +1,15 @@
 extends Node2D
 
 func _ready() -> void:
+	# ENABLE ALL
+	for i in $Keys.get_children():
+		var instance = i
+		if is_instance_of(instance, Key_button):
+			var key_instance: Key_button = instance
+			Global.keys_state[key_instance.id_name].set("state", true)
+
+
+func _ready() -> void:
 	Tools.debug_enable = true
 
 func update_screen() -> void:

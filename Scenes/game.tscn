@@ -1,3 +1,132 @@
 [gd_scene format=3 uid="uid://cdupil0uusqjf"]
 
+[ext_resource type="PackedScene" uid="uid://cb0wmtmmhmw3b" path="res://Scenes/key.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://dol1bfkkkp1cs" path="res://Scenes/game.gd" id="1_wrm1d"]
+[ext_resource type="Script" uid="uid://dsenhg60xfy33" path="res://Scenes/floor_powers.gd" id="2_qxrlw"]
+
 [node name="Game" type="Node2D" unique_id=251210438]
+script = ExtResource("1_wrm1d")
+
+[node name="Keys" type="Node2D" parent="." unique_id=329377425]
+
+[node name="Key11" parent="Keys" unique_id=430341443 instance=ExtResource("1_ebmjs")]
+position = Vector2(29, 61)
+
+[node name="Key12" parent="Keys" unique_id=1567679595 instance=ExtResource("1_ebmjs")]
+position = Vector2(49, 61)
+id_name = "w"
+
+[node name="Key13" parent="Keys" unique_id=510114555 instance=ExtResource("1_ebmjs")]
+position = Vector2(69, 61)
+id_name = "e"
+
+[node name="Key14" parent="Keys" unique_id=755750816 instance=ExtResource("1_ebmjs")]
+position = Vector2(89, 61)
+id_name = "r"
+
+[node name="Key15" parent="Keys" unique_id=914049621 instance=ExtResource("1_ebmjs")]
+position = Vector2(109, 61)
+id_name = "t"
+
+[node name="Key16" parent="Keys" unique_id=338034752 instance=ExtResource("1_ebmjs")]
+position = Vector2(169, 61)
+id_name = "z"
+
+[node name="Key17" parent="Keys" unique_id=687908566 instance=ExtResource("1_ebmjs")]
+position = Vector2(189, 61)
+id_name = "u"
+
+[node name="Key18" parent="Keys" unique_id=999819296 instance=ExtResource("1_ebmjs")]
+position = Vector2(209, 61)
+id_name = "i"
+
+[node name="Key19" parent="Keys" unique_id=1590338965 instance=ExtResource("1_ebmjs")]
+position = Vector2(229, 61)
+id_name = "o"
+
+[node name="Key20" parent="Keys" unique_id=448285634 instance=ExtResource("1_ebmjs")]
+position = Vector2(249, 61)
+id_name = "p"
+
+[node name="Key21" parent="Keys" unique_id=694621888 instance=ExtResource("1_ebmjs")]
+position = Vector2(32, 85)
+id_name = "a"
+
+[node name="Key22" parent="Keys" unique_id=2145216943 instance=ExtResource("1_ebmjs")]
+position = Vector2(52, 85)
+id_name = "s"
+
+[node name="Key23" parent="Keys" unique_id=321061308 instance=ExtResource("1_ebmjs")]
+position = Vector2(72, 85)
+id_name = "d"
+
+[node name="Key24" parent="Keys" unique_id=1868594422 instance=ExtResource("1_ebmjs")]
+position = Vector2(92, 85)
+id_name = "f"
+
+[node name="Key25" parent="Keys" unique_id=595371627 instance=ExtResource("1_ebmjs")]
+position = Vector2(112, 85)
+id_name = "g"
+
+[node name="Key26" parent="Keys" unique_id=625985780 instance=ExtResource("1_ebmjs")]
+position = Vector2(172, 85)
+id_name = "h"
+
+[node name="Key27" parent="Keys" unique_id=207752468 instance=ExtResource("1_ebmjs")]
+position = Vector2(192, 85)
+id_name = "j"
+
+[node name="Key28" parent="Keys" unique_id=635790456 instance=ExtResource("1_ebmjs")]
+position = Vector2(212, 85)
+id_name = "k"
+
+[node name="Key29" parent="Keys" unique_id=914691334 instance=ExtResource("1_ebmjs")]
+position = Vector2(232, 85)
+id_name = "l"
+
+[node name="Key30" parent="Keys" unique_id=743697944 instance=ExtResource("1_ebmjs")]
+position = Vector2(252, 85)
+id_name = "é"
+
+[node name="Key31" parent="Keys" unique_id=296867566 instance=ExtResource("1_ebmjs")]
+position = Vector2(39, 109)
+id_name = "y"
+
+[node name="Key32" parent="Keys" unique_id=1406352186 instance=ExtResource("1_ebmjs")]
+position = Vector2(59, 109)
+id_name = "x"
+
+[node name="Key33" parent="Keys" unique_id=540811966 instance=ExtResource("1_ebmjs")]
+position = Vector2(79, 109)
+id_name = "c"
+
+[node name="Key34" parent="Keys" unique_id=1981422336 instance=ExtResource("1_ebmjs")]
+position = Vector2(99, 109)
+id_name = "v"
+
+[node name="Key35" parent="Keys" unique_id=982657088 instance=ExtResource("1_ebmjs")]
+position = Vector2(119, 109)
+id_name = "b"
+
+[node name="Key36" parent="Keys" unique_id=2142304264 instance=ExtResource("1_ebmjs")]
+position = Vector2(179, 109)
+id_name = "n"
+
+[node name="Key37" parent="Keys" unique_id=1974838991 instance=ExtResource("1_ebmjs")]
+position = Vector2(199, 109)
+id_name = "m"
+
+[node name="Key38" parent="Keys" unique_id=1657439200 instance=ExtResource("1_ebmjs")]
+position = Vector2(219, 109)
+id_name = ","
+
+[node name="Key39" parent="Keys" unique_id=1361832034 instance=ExtResource("1_ebmjs")]
+position = Vector2(239, 109)
+id_name = "point"
+
+[node name="Key40" parent="Keys" unique_id=1470614467 instance=ExtResource("1_ebmjs")]
+position = Vector2(259, 109)
+id_name = "-"
+
+[node name="FloorPowers" type="Node" parent="." unique_id=2048813344]
+script = ExtResource("2_qxrlw")

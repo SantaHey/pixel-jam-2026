@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://b73mmmfcne7k4"]
+
+[ext_resource type="PackedScene" uid="uid://cb0wmtmmhmw3b" path="res://Scenes/key.tscn" id="1_h6jrl"]
+
+[node name="keys" type="Node2D" unique_id=1003941559]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1443118286]
+visible = false
+offset_left = -1.0
+offset_top = -7.0
+offset_right = 322.0
+offset_bottom = 182.0
+color = Color(0, 0, 0, 1)
+
+[node name="Key11" parent="." unique_id=1193465854 instance=ExtResource("1_h6jrl")]
+position = Vector2(29, 61)
+
+[node name="Key12" parent="." unique_id=3229769 instance=ExtResource("1_h6jrl")]
+position = Vector2(49, 61)
+id_name = "w"
+
+[node name="Key13" parent="." unique_id=1118096438 instance=ExtResource("1_h6jrl")]
+position = Vector2(69, 61)
+id_name = "e"
+
+[node name="Key14" parent="." unique_id=1628090703 instance=ExtResource("1_h6jrl")]
+position = Vector2(89, 61)
+id_name = "r"
+
+[node name="Key15" parent="." unique_id=40894567 instance=ExtResource("1_h6jrl")]
+position = Vector2(109, 61)
+id_name = "t"
+
+[node name="Key16" parent="." unique_id=710087653 instance=ExtResource("1_h6jrl")]
+position = Vector2(169, 61)
+id_name = "z"
+
+[node name="Key17" parent="." unique_id=1290260542 instance=ExtResource("1_h6jrl")]
+position = Vector2(189, 61)
+id_name = "u"
+
+[node name="Key18" parent="." unique_id=899037283 instance=ExtResource("1_h6jrl")]
+position = Vector2(209, 61)
+id_name = "i"
+
+[node name="Key19" parent="." unique_id=183231832 instance=ExtResource("1_h6jrl")]
+position = Vector2(229, 61)
+id_name = "o"
+
+[node name="Key20" parent="." unique_id=425432793 instance=ExtResource("1_h6jrl")]
+position = Vector2(249, 61)
+id_name = "p"
+
+[node name="Key21" parent="." unique_id=1548455021 instance=ExtResource("1_h6jrl")]
+position = Vector2(32, 85)
+id_name = "a"
+
+[node name="Key22" parent="." unique_id=1543193597 instance=ExtResource("1_h6jrl")]
+position = Vector2(52, 85)
+id_name = "s"
+
+[node name="Key23" parent="." unique_id=1518922868 instance=ExtResource("1_h6jrl")]
+position = Vector2(72, 85)
+id_name = "d"
+
+[node name="Key24" parent="." unique_id=406970202 instance=ExtResource("1_h6jrl")]
+position = Vector2(92, 85)
+id_name = "f"
+
+[node name="Key25" parent="." unique_id=1436180108 instance=ExtResource("1_h6jrl")]
+position = Vector2(112, 85)
+id_name = "g"
+
+[node name="Key26" parent="." unique_id=515891745 instance=ExtResource("1_h6jrl")]
+position = Vector2(172, 85)
+id_name = "h"
+
+[node name="Key27" parent="." unique_id=1592396648 instance=ExtResource("1_h6jrl")]
+position = Vector2(192, 85)
+id_name = "j"
+
+[node name="Key28" parent="." unique_id=1465820267 instance=ExtResource("1_h6jrl")]
+position = Vector2(212, 85)
+id_name = "k"
+
+[node name="Key29" parent="." unique_id=133326710 instance=ExtResource("1_h6jrl")]
+position = Vector2(232, 85)
+id_name = "l"
+
+[node name="Key30" parent="." unique_id=31572826 instance=ExtResource("1_h6jrl")]
+position = Vector2(252, 85)
+id_name = "é"
+
+[node name="Key31" parent="." unique_id=255170153 instance=ExtResource("1_h6jrl")]
+position = Vector2(39, 109)
+id_name = "y"
+
+[node name="Key32" parent="." unique_id=1327527265 instance=ExtResource("1_h6jrl")]
+position = Vector2(59, 109)
+id_name = "x"
+
+[node name="Key33" parent="." unique_id=111074339 instance=ExtResource("1_h6jrl")]
+position = Vector2(79, 109)
+id_name = "c"
+
+[node name="Key34" parent="." unique_id=602067084 instance=ExtResource("1_h6jrl")]
+position = Vector2(99, 109)
+id_name = "v"
+
+[node name="Key35" parent="." unique_id=714299491 instance=ExtResource("1_h6jrl")]
+position = Vector2(119, 109)
+id_name = "b"
+
+[node name="Key36" parent="." unique_id=1766766006 instance=ExtResource("1_h6jrl")]
+position = Vector2(179, 109)
+id_name = "n"
+
+[node name="Key37" parent="." unique_id=1925467362 instance=ExtResource("1_h6jrl")]
+position = Vector2(199, 109)
+id_name = "m"
+
+[node name="Key38" parent="." unique_id=1012114215 instance=ExtResource("1_h6jrl")]
+position = Vector2(219, 109)
+id_name = ","
+
+[node name="Key39" parent="." unique_id=1798129073 instance=ExtResource("1_h6jrl")]
+position = Vector2(239, 109)
+id_name = "point"
+
+[node name="Key40" parent="." unique_id=1219747172 instance=ExtResource("1_h6jrl")]
+position = Vector2(259, 109)
+id_name = "-"
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1782995425]
+offset_left = -17.0
+offset_top = 142.0
+offset_right = 322.0
+offset_bottom = 143.0
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1298736725]
+offset_left = -17.0
+offset_top = 55.0
+offset_right = 322.0
+offset_bottom = 56.0
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=329055024]
+offset_left = -17.0
+offset_top = -17.0
+offset_right = -13.0
+offset_bottom = 63.0

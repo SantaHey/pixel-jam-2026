@@ -36,3 +36,10 @@ var keys_state = {
 		"pressed" : false
 	},
 }
+
+var powers_state = {
+	"1" : {
+		"player" : 1,
+		"available" : true,
+	}
+}

@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Export folder
+/Build/
+
+# ignore tmp scenes
+*.tmp

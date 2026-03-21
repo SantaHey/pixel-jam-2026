@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready() -> void:
+	Tools.debug_enable = true
+
 func update_screen() -> void:
 	for i in $Keys.get_children():
 		if is_instance_of(i, Key_button):
@@ -9,10 +12,19 @@ func update_screen() -> void:
 				instance.pressed = Global.keys_state.get(key_id).pressed
 				instance.unlocked = Global.keys_state.get(key_id).state
 				instance.multiplicator = Global.keys_state.get(key_id).multiplicator
-				Tools.showdebugtext("sdsdf", 1231)
 	
-	$UI/Score_j1.text = "SCORE: " + str(Global.score_j1)
-	$UI/Score_j2.text = "SCORE: " + str(Global.score_j2)
+	var j1_score = Global.score_j1
+	var j2_score = Global.score_j2
+	
+	$UI/Score_j1.text = "SCORE: " + str(j1_score)
+	$UI/Score_j2.text = "SCORE: " + str(j2_score)
+	
+	var curr_min_score = Global.floors.get(Global.current_floor)["base_value"]
+	var curr_max_score = Global.floors.get(Global.current_floor)["reach_value"]
+	
+	$UI/ProgressBar_j1.value = ((j1_score - curr_min_score) / (curr_max_score - curr_min_score)) * 100
+	
 
 func _process(delta: float) -> void:
+	Tools.showdebugtext("fps", Engine.get_frames_per_second())
 	update_screen()

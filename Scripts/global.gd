@@ -1,7 +1,7 @@
 extends Node
 
-var score_j1 = 0
-var score_j2 = 0
+var score_j1 = 0.0
+var score_j2 = 0.0
 
 var keys_state = {
 	# Player 1
@@ -58,11 +58,15 @@ var current_floor = 0
 
 var floors = {
 	0 : {
-		"base_value" : 0,
-		"reach_value" : 100,
+		"base_value" : 0.0,
+		"reach_value" : 100.0,
 	},
 	1 : {
-		"base_value" : 100,
+		"base_value" : 100.0,
+		"reach_value" : 200.0,
+	},
+	2 : {
+		"base_value" : 200.0,
 		"reach_value" : INF,
 	},
 }

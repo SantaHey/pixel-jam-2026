@@ -2,16 +2,38 @@
 
 [ext_resource type="Script" uid="uid://dl6yv5jb5ncde" path="res://Scenes/key.gd" id="1_ut0wq"]
 [ext_resource type="FontFile" uid="uid://cbqljjgmopg8o" path="res://fonts/HOMEMADE 2.ttf" id="2_udxw8"]
-[ext_resource type="Texture2D" uid="uid://bxifivgvl2g4y" path="res://sprite/temp.png" id="3_brn0f"]
+[ext_resource type="Texture2D" uid="uid://b7iu7wl4it6nk" path="res://sprite/Particles_sheet.png" id="3_brn0f"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lc1k7"]
 particles_animation = true
-particles_anim_h_frames = 7
+particles_anim_h_frames = 10
 particles_anim_v_frames = 1
-particles_anim_loop = true
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_brn0f"]
+particle_flag_disable_z = true
+inherit_velocity_ratio = 10.0
+spread = 180.0
+initial_velocity_max = 100.0
+angular_velocity_min = -90.000015
+angular_velocity_max = 89.999985
+gravity = Vector3(0, 0, 0)
+anim_offset_max = 1.0
+turbulence_noise_speed_random = 0.0
 
 [node name="Key" type="Sprite2D" unique_id=430341443]
 script = ExtResource("1_ut0wq")
+
+[node name="CPUParticles2D" type="GPUParticles2D" parent="." unique_id=660303331]
+z_index = 1000
+material = SubResource("CanvasItemMaterial_lc1k7")
+position = Vector2(7.5, 9)
+emitting = false
+amount = 10
+texture = ExtResource("3_brn0f")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_brn0f")
 
 [node name="Multiplicator" type="RichTextLabel" parent="." unique_id=961330941]
 offset_left = 7.0
@@ -33,19 +55,3 @@ color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 [node name="Placeholder" type="ColorRect" parent="." unique_id=942721355]
 offset_right = 15.0
 offset_bottom = 15.0
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=175800965]
-material = SubResource("CanvasItemMaterial_lc1k7")
-emitting = false
-amount = 25
-texture = ExtResource("3_brn0f")
-one_shot = true
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 55.84
-initial_velocity_max = 55.84
-angular_velocity_min = -201.36
-angular_velocity_max = 263.15
-scale_amount_min = 0.1
-scale_amount_max = 0.1
-anim_offset_max = 1.0

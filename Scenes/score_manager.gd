@@ -2,9 +2,9 @@ extends Node
 
 func _process(delta: float) -> void:
 	
-	Tools.showdebugtext("SCORE_J1", Global.score_j1)
-	Tools.showdebugtext("SCORE_J2", Global.score_j2)
-	Tools.showdebugtext("FLOOR", Global.current_floor)
+	#Tools.showdebugtext("SCORE_J1", Global.score_j1)
+	#Tools.showdebugtext("SCORE_J2", Global.score_j2)
+	#Tools.showdebugtext("FLOOR", Global.current_floor)
 	
 	var added_points_j1 = 0
 	var added_points_j2 = 0

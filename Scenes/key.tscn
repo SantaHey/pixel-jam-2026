@@ -30,6 +30,10 @@ offset_right = 12.0
 offset_bottom = 19.0
 color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 
+[node name="Placeholder" type="ColorRect" parent="." unique_id=942721355]
+offset_right = 15.0
+offset_bottom = 15.0
+
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=175800965]
 material = SubResource("CanvasItemMaterial_lc1k7")
 emitting = false

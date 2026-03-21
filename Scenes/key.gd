@@ -16,6 +16,7 @@ var multiplicator: float = 1.0
 var t = 0
 
 func _ready() -> void:
+	$Placeholder.hide()
 	load_textures()
 
 func load_textures():

@@ -20,6 +20,9 @@ config/icon="res://icon.svg"
 window/size/viewport_width=300
 window/size/viewport_height=175
 window/stretch/mode="canvas_items"
+[autoload]
+
+Global="*uid://dffs8xynsm2b8"
 
 [physics]
 

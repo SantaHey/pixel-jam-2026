@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	
 	queue_redraw()
 	
-	$Multiplicator.text = str(multiplicator)
+	$Multiplicator.text = "X " + str(multiplicator)
 	
 func _create_particles() -> void:
 	# TODO look into particle emitter, modif with score

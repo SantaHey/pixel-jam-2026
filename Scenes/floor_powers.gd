@@ -7,6 +7,12 @@ func _process(_delta: float) -> void:
 		boost_keys(1)
 	if Input.is_action_just_pressed("3") and Global.powers_available:
 		boost_all_keys(1)
+	if Input.is_action_just_pressed("6") and Global.powers_available:
+		unlock_keys(2)
+	if Input.is_action_just_pressed("7") and Global.powers_available:
+		boost_keys(2)
+	if Input.is_action_just_pressed("8") and Global.powers_available:
+		boost_all_keys(2)
 
 func get_player_keys(player_num) -> Array:
 	var hmap_keys = Global.keys_state.keys()

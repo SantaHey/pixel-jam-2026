@@ -24,7 +24,7 @@ turbulence_noise_speed_random = 0.0
 [node name="Key" type="Sprite2D" unique_id=430341443]
 script = ExtResource("1_ut0wq")
 
-[node name="CPUParticles2D" type="GPUParticles2D" parent="." unique_id=660303331]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=660303331]
 z_index = 1000
 material = SubResource("CanvasItemMaterial_lc1k7")
 position = Vector2(7.5, 9)

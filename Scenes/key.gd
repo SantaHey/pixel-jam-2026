@@ -34,11 +34,9 @@ func _process(delta: float) -> void:
 	
 func _create_particles() -> void:
 	# TODO look into particle emitter, modif with score
-	var p = $CPUParticles2D.duplicate()
+	var p = $GPUParticles2D.duplicate()
 	add_child(p)
 	p.restart()
-	# q$CPUParticles2D.emitting = true
-	pass
 	
 func _draw() -> void:
 	var t_to_draw = t_down if pressed else t_up

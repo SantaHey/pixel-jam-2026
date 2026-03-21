@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*uid://dffs8xynsm2b8"
+Global="*res://Scripts/Global.gd"
 
 [physics]
 

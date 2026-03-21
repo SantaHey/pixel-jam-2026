@@ -8,3 +8,6 @@ script = ExtResource("1_0dtjm")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=890319554]
 offset_right = 1022.0
 offset_bottom = 623.0
+
+[node name="Timer" type="Timer" parent="." unique_id=2003841580]
+autostart = true

@@ -54,3 +54,16 @@ var powers_state = {
 		"available" : false,
 	}
 }
+
+var current_floor = 0
+
+var floors = {
+	0 : {
+		"base_value" : 0,
+		"reach_value" : 100,
+	},
+	1 : {
+		"base_value" : 100,
+		"reach_value" : 200,
+	},
+}

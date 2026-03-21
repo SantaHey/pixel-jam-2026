@@ -3,6 +3,7 @@ extends Node
 class_name Tools
 
 static var debug_enable = true
+static var font_size = 7
 
 static var displayed_texts: Dictionary = {}
 static func showdebugtext(id, text):
@@ -29,6 +30,7 @@ static func showdebugtext(id, text):
 		label.name = "DebugLabel"
 		label.position = Vector2(10, 10)
 		label.add_theme_color_override("font_color", Color.RED)
+		label.add_theme_font_size_override("font_size", font_size)
 		canvas.add_child(label)
 
 	# 3. Construction du texte final

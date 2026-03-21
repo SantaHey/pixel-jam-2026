@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c5vf4qtbxpkpt"]
+
+[ext_resource type="Script" uid="uid://cn6p7005mcq4g" path="res://Scenes/events.gd" id="1_pbwiu"]
+
+[node name="Events" type="Node" unique_id=1455737448]
+script = ExtResource("1_pbwiu")
+
+[node name="Timer" type="Timer" parent="." unique_id=1150610458]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

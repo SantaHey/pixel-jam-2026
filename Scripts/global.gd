@@ -23,6 +23,30 @@ var keys_state = {
 		"multiplicator" : 1,
 		"pressed" : false
 	},
+	"e" : {
+		"player" : 1,
+		"line" : 0,
+		"col" : 2,
+		"state" : false,
+		"multiplicator" : 1,
+		"pressed" : false
+	},
+	"r" : {
+		"player" : 1,
+		"line" : 0,
+		"col" : 3,
+		"state" : true,
+		"multiplicator" : 1,
+		"pressed" : false
+	},
+	"t" : {
+		"player" : 1,
+		"line" : 0,
+		"col" : 4,
+		"state" : true,
+		"multiplicator" : 1,
+		"pressed" : false
+	},
 	# Player 2
 	"z" : {
 		"player" : 2,

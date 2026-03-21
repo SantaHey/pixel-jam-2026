@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b73mmmfcne7k4"]
 
+[ext_resource type="Script" uid="uid://l60rnim843qp" path="res://Scenes/guillaume.gd" id="1_fbgld"]
 [ext_resource type="PackedScene" uid="uid://cb0wmtmmhmw3b" path="res://Scenes/key.tscn" id="1_h6jrl"]
 [ext_resource type="FontFile" uid="uid://cbqljjgmopg8o" path="res://fonts/HOMEMADE 2.ttf" id="2_h7id1"]
 
@@ -10,6 +11,7 @@ bg_color = Color(1, 1, 1, 1)
 bg_color = Color(0.8862745, 0.67058825, 0.7294118, 1)
 
 [node name="keys" type="Node2D" unique_id=1003941559]
+script = ExtResource("1_fbgld")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1443118286]
 offset_left = -2.0

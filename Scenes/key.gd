@@ -1,5 +1,7 @@
 extends Sprite2D
 
+class_name Key_button
+
 @export var id_name = "q"
 
 var t_up

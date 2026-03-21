@@ -1,14 +1,24 @@
 [gd_scene format=3 uid="uid://cb0wmtmmhmw3b"]
 
 [ext_resource type="Script" uid="uid://dl6yv5jb5ncde" path="res://Scenes/key.gd" id="1_ut0wq"]
+[ext_resource type="FontFile" uid="uid://cbqljjgmopg8o" path="res://fonts/HOMEMADE 2.ttf" id="2_udxw8"]
 
 [node name="Key" type="Sprite2D" unique_id=430341443]
 script = ExtResource("1_ut0wq")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=961330941]
 offset_left = 7.0
-offset_top = 20.0
+offset_top = 21.0
 offset_right = 47.0
-offset_bottom = 60.0
+offset_bottom = 61.0
+theme_override_fonts/normal_font = ExtResource("2_udxw8")
 theme_override_font_sizes/normal_font_size = 3
 text = "12"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=447063172]
+visible = false
+offset_left = 3.0
+offset_top = 8.0
+offset_right = 12.0
+offset_bottom = 19.0
+color = Color(0.012617188, 0.012617188, 0.012617188, 1)

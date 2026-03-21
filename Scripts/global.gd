@@ -40,18 +40,17 @@ var keys_state = {
 	},
 }
 
+var powers_available = true
+
 var powers_state = {
 	"1" : {
 		"player" : 1,
-		"available" : false,
 	},
 	"2" : {
 		"player" : 1,
-		"available" : true,
 	},
 	"3" : {
 		"player" : 1,
-		"available" : false,
 	}
 }
 
@@ -64,6 +63,6 @@ var floors = {
 	},
 	1 : {
 		"base_value" : 100,
-		"reach_value" : 200,
+		"reach_value" : INF,
 	},
 }

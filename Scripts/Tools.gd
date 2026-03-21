@@ -2,7 +2,7 @@ extends Node
 
 class_name Tools
 
-static var debug_enable = true
+static var debug_enable = false
 static var font_size = 7
 
 static var displayed_texts: Dictionary = {}

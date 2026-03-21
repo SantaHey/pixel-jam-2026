@@ -13,8 +13,6 @@ var unlocked = false
 
 var multiplicator: float = 1.0
 
-var t = 0
-
 func _ready() -> void:
 	$Placeholder.hide()
 	load_textures()
@@ -25,22 +23,14 @@ func load_textures():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	t += delta
-	if t > 1:
-		pressed = !pressed
-		t = 0
-	if t < 0.5:
-		unlocked = false
-	if t > 0.5:
-		unlocked = true
-	
 	if last != pressed and pressed:
 		_create_particles()
 	
 	last = pressed
-		
+	
 	queue_redraw()
 	
+	$Multiplicator.text = str(multiplicator)
 	
 func _create_particles() -> void:
 	# TODO look into particle emitter, modif with score

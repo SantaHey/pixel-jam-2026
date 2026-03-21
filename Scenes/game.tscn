@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cb0wmtmmhmw3b" path="res://Scenes/key.tscn" id="1_ebmjs"]
 [ext_resource type="FontFile" uid="uid://cbqljjgmopg8o" path="res://fonts/HOMEMADE 2.ttf" id="1_qxrlw"]
 [ext_resource type="Script" uid="uid://l60rnim843qp" path="res://Scenes/game.gd" id="1_wrm1d"]
+[ext_resource type="Script" uid="uid://dsenhg60xfy33" path="res://Scenes/floor_powers.gd" id="2_qxrlw"]
+[ext_resource type="Script" uid="uid://dkyfjhu3xyg4m" path="res://Scenes/score_manager.gd" id="4_3dryh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7id1"]
 bg_color = Color(1, 1, 1, 1)
@@ -302,3 +304,9 @@ id_name = "point"
 [node name="Key40" parent="Keys" unique_id=1219747172 instance=ExtResource("1_ebmjs")]
 position = Vector2(259, 112)
 id_name = "-"
+
+[node name="ScoreManager" type="Node" parent="." unique_id=998840367]
+script = ExtResource("4_3dryh")
+
+[node name="FloorPowers" type="Node" parent="." unique_id=1516072630]
+script = ExtResource("2_qxrlw")

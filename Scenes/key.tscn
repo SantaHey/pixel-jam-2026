@@ -13,7 +13,7 @@ particles_anim_loop = true
 [node name="Key" type="Sprite2D" unique_id=430341443]
 script = ExtResource("1_ut0wq")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=961330941]
+[node name="Multiplicator" type="RichTextLabel" parent="." unique_id=961330941]
 offset_left = 7.0
 offset_top = 21.0
 offset_right = 47.0

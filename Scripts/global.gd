@@ -3,8 +3,6 @@ extends Node
 var score_j1 = 0
 var score_j2 = 0
 
-
-
 var keys_state = {
 	# Player 1
 	"q" : {
@@ -45,6 +43,14 @@ var keys_state = {
 var powers_state = {
 	"1" : {
 		"player" : 1,
+		"available" : false,
+	},
+	"2" : {
+		"player" : 1,
 		"available" : true,
+	},
+	"3" : {
+		"player" : 1,
+		"available" : false,
 	}
 }

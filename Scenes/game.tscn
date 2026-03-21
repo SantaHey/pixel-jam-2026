@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cdupil0uusqjf"]
 
 [ext_resource type="PackedScene" uid="uid://cb0wmtmmhmw3b" path="res://Scenes/key.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://dol1bfkkkp1cs" path="res://Scenes/game.gd" id="1_wrm1d"]
 [ext_resource type="Script" uid="uid://dsenhg60xfy33" path="res://Scenes/floor_powers.gd" id="2_qxrlw"]
 
 [node name="Game" type="Node2D" unique_id=251210438]
+script = ExtResource("1_wrm1d")
 
 [node name="Keys" type="Node2D" parent="." unique_id=329377425]
 

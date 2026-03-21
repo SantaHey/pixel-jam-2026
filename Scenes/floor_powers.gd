@@ -1,18 +1,23 @@
 extends Node
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("1"):
+	if Input.is_action_just_pressed("1") and Global.powers_state["1"].available:
 		unlock_keys(1)
-	if Input.is_action_just_pressed("2"):
+	if Input.is_action_just_pressed("2") and Global.powers_state["2"].available:
 		boost_keys(1)
-	if Input.is_action_just_pressed("3"):
+	if Input.is_action_just_pressed("3") and Global.powers_state["3"].available:
 		boost_all_keys(1)
-	
+
 	# display
-	Tools.showdebugtext("1_q", Global.keys_state.get("q"))
-	Tools.showdebugtext("1_w", Global.keys_state.get("w"))
-	Tools.showdebugtext("2_z", Global.keys_state.get("z"))
-	Tools.showdebugtext("2_u", Global.keys_state.get("u"))
+	Tools.showdebugtext("key_q", Global.keys_state.get("q"))
+	Tools.showdebugtext("key_w", Global.keys_state.get("w"))
+	Tools.showdebugtext("key_z", Global.keys_state.get("z"))
+	Tools.showdebugtext("key_u", Global.keys_state.get("u"))
+
+	# display powers
+	Tools.showdebugtext("power_1", Global.powers_state["1"])
+	Tools.showdebugtext("power_2", Global.powers_state["2"])
+	Tools.showdebugtext("power_3", Global.powers_state["3"])
 
 func get_player_keys(player_num) -> Array:
 	var hmap_keys = Global.keys_state.keys()

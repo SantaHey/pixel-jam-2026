@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="pixeljam_2026"
-run/main_scene="uid://bmfb4608ra22l"
+run/main_scene="uid://cdupil0uusqjf"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

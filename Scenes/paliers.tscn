@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bwu6gc863bdxo"]
+
+[ext_resource type="Texture2D" uid="uid://bdytogi4ed1a0" path="res://sprite/keys/1-up.png" id="1_sqts7"]
+[ext_resource type="FontFile" uid="uid://cbqljjgmopg8o" path="res://fonts/HOMEMADE 2.ttf" id="2_tjacp"]
+[ext_resource type="Texture2D" uid="uid://cf6qnkharplkj" path="res://sprite/keys/2-up.png" id="3_jauwv"]
+[ext_resource type="Texture2D" uid="uid://cwno60vtvff61" path="res://sprite/keys/3-up.png" id="4_t62oc"]
+
+[node name="Node2D" type="Node2D" unique_id=583617968]
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1794210799]
+offset_left = 9.0
+offset_top = -77.0
+offset_right = 343.0
+offset_bottom = 367.0
+color = Color(0, 0, 0, 0.33333334)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=217059640]
+offset_left = 21.0
+offset_top = 93.0
+offset_right = 334.0
+offset_bottom = 174.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505660209]
+position = Vector2(35, 109)
+texture = ExtResource("1_sqts7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=4676588]
+offset_left = 47.0
+offset_top = 102.0
+offset_right = 118.0
+offset_bottom = 125.0
+theme_override_fonts/normal_font = ExtResource("2_tjacp")
+text = "+1 KEY"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2068292828]
+position = Vector2(35, 131)
+texture = ExtResource("3_jauwv")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=461550531]
+offset_left = 47.0
+offset_top = 125.0
+offset_right = 342.0
+offset_bottom = 148.0
+theme_override_fonts/normal_font = ExtResource("2_tjacp")
+text = "+10 SCORE FOR A RANDOM KEY"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=440216139]
+offset_left = 47.0
+offset_top = 147.0
+offset_right = 287.0
+offset_bottom = 170.0
+theme_override_fonts/normal_font = ExtResource("2_tjacp")
+text = "+2 SCORE ON ALL KEYS"
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1994438883]
+position = Vector2(35, 153)
+texture = ExtResource("4_t62oc")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=840863643]
+offset_left = 21.0
+offset_top = 93.0
+offset_right = 335.0
+offset_bottom = 174.0
+border_color = Color(0.54901963, 0.7764706, 0.9019608, 1)
+border_width = 1.2

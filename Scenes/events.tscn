@@ -5,7 +5,12 @@
 [node name="Events" type="Node" unique_id=1455737448]
 script = ExtResource("1_pbwiu")
 
-[node name="Timer" type="Timer" parent="." unique_id=1150610458]
+[node name="EventTriggerTimer" type="Timer" parent="." unique_id=1150610458]
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="EventDurationTimer" type="Timer" parent="." unique_id=1052211952]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="EventTriggerTimer" to="." method="_on_event_trigger_timer_timeout"]
+[connection signal="timeout" from="EventDurationTimer" to="." method="_on_event_duration_timer_timeout"]

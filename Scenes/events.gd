@@ -1,8 +1,5 @@
 extends Node
 
-var bonus = 2
-var malus = 0
-
 var is_event_active = false
 var j1_event_target_key_string : String = ""
 var j2_event_target_key_string : String = ""
@@ -14,6 +11,15 @@ var event_reward_power : int = 3
 var j1_current_presses = 0
 var j2_current_presses = 0
 
+func _ready() -> void:
+	print("fdsdjf")
+	#Tools.showdebugtext("children", str(get_children()))
+	$EventTriggerTimer.wait_time = 1
+
+func _on_event_trigger_timer_timeout() -> void:
+	start_new_event()
+
+# EVENT GENERATION
 func start_new_event():
 	
 	j1_current_presses = 0
@@ -35,35 +41,43 @@ func start_new_event():
 	is_event_active = true
 	
 	print("Le joueur 1 doit appuyer ", event_target_presses, " fois sur la touche ", j1_event_target_key_string)
+	Tools.showdebugtext("event_j1", "J1 doit appuyer " + str(event_target_presses) + " fois sur la touche " + j1_event_target_key_string)
 	print("Le joueur 2 doit appuyer ", event_target_presses, " fois sur la touche ", j2_event_target_key_string)
+	Tools.showdebugtext("event_j2", "J2 doit appuyer " + str(event_target_presses) + " fois sur la touche " + j2_event_target_key_string)
 	print("La récompense est un ", event_reward_type)
 
 func generate_event():
-	$Timer.stop()
-	var nb_pressed = randi_range(10,50)
+	$EventTriggerTimer.stop()
+	var nb_pressed = randi_range(5,15)
 	var index_key = get_common_keys()
 	print(nb_pressed)
 	print(index_key)
 	return [nb_pressed,index_key]
-	
-func win_event(id):
-	print("🏆 Le Joueur ", id, " a terminé l'event en premier !")
-	is_event_active = false
-	
-	if event_reward_type == "bonus":
-		bonus_event(id, event_reward_power)
-		print("Le joueur ", id, " voit ", event_reward_power, " de ses touches améliorées")
-	else:
-		var loser_id = 1
-		if id == 1:
-			loser_id = 2
-		malus_event(loser_id, event_reward_power)
-		print("Le joueur ", loser_id, " subit un malus sur ", event_reward_power, " touches")
-	end_event()
-	
-func end_event():
-	$Timer.start()
 
+func get_common_keys():
+	var common_key = []
+	var l1 = transform_key_pos(get_available_key(1))
+	var l2 = transform_key_pos(get_available_key(2))
+	for l in l1:
+		for m in l2:
+			if l == m:
+				common_key.append(l)
+	return common_key[randi_range(0,len(common_key)-1)]
+
+func transform_key_pos(list) :
+	var l = []
+	for k in list:
+		l.append(Vector2(Global.keys_state[k]["line"],Global.keys_state[k]["col"]))
+	return l
+
+func get_available_key(id):
+	var available_key = []
+	for key in Global.keys_state:
+		if Global.keys_state[key]["state"] and Global.keys_state[key]["player"]==id :
+			available_key.append(key)
+	return available_key
+
+# EVENT HANDLING
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_event_active:
 		return
@@ -106,39 +120,67 @@ func process_player_input(pressed_key: String):
 				j2_current_presses = 0
 				print("Erreur J2 ! Le compteur retombe à 0.")
 
-# Event Result
-func get_common_keys():
-	var common_key = []
-	var l1 = transform_key_pos(get_available_key(1))
-	var l2 = transform_key_pos(get_available_key(2))
-	for l in l1:
-		for m in l2:
-			if l == m:
-				common_key.append(l)
-	return common_key[randi_range(0,len(common_key)-1)]
+# EVENT REWARD
+func win_event(player_id):
+	print("🏆 Le Joueur ", player_id, " a terminé l'event en premier !")
+	is_event_active = false
+	
+	if event_reward_type == "bonus":
+		trigger_event("bonus", player_id, event_reward_power)
+		print("Le joueur ", player_id, " voit ", event_reward_power, " de ses touches améliorées")
+		Tools.showdebugtext("event_j"+str(player_id), "J" + str(player_id) + " a gagné un bonus ! : " + str(event_reward_power) + "x multiplicator sur " + str(event_reward_power) + " touches")
+	else:
+		var loser_id = 1
+		if player_id == 1:
+			loser_id = 2
+		trigger_event("malus", loser_id, event_reward_power)
+		print("Le joueur ", loser_id, " subit un malus sur ", event_reward_power, " touches")
+		Tools.showdebugtext("event_j"+str(player_id), "J" + str(player_id) + " a gagné un bonus ! : " + str(event_reward_power) + "x multiplicator sur " + str(event_reward_power) + " touches")
 
-func transform_key_pos(list) :
-	var l = []
-	for k in list:
-		l.append(Vector2(Global.keys_state[k]["line"],Global.keys_state[k]["col"]))
-	return l
 
-func bonus_event(id,n):
-	var keys = select_random_key(id,n)
-	for k in keys:
-		Global.keys_state[k].multiplicator = bonus
+var events = {
+	"bonus" : {
+		"value": 5,
+		"keys": [],
+	},
+	"malus" : {
+		"value": 0,
+		"keys": [],
+		"previous_values": []
+	},
+}
 
-func malus_event(id,n):
-	var keys = select_random_key(id,n)
-	for k in keys:
-		Global.keys_state[k].multiplicator = malus
+func trigger_event(event_name, id,n):
+	# BONUS EVENT
+	if event_name == "bonus":
+		print("trigger bonus for player ", id)
+		var selected_keys = select_random_key(id,n)
+		print(selected_keys)
+		events["bonus"].set("keys", selected_keys)
+		
+		var bonus_value = events[event_name]["value"]
+		for k in selected_keys:
+			Global.keys_state[k].multiplicator *= bonus_value
+			Global.keys_state[k].event = "noevent"
+	
+	# MALUS EVENT
+	if event_name == "malus":
+		print("trigger malus for player ", id)
+		var selected_keys = select_random_key(id,n)
+		print(selected_keys)
+		events[event_name].set("keys", selected_keys)
+		
+		var malus_value = events[event_name]["value"]
+		var previous_values = []
+		for k in selected_keys:
+			previous_values.append(Global.keys_state[k].multiplicator)
+			Global.keys_state[k].multiplicator *= malus_value
+			Global.keys_state[k].event = "noevent"
 
-func get_available_key(id):
-	var available_key = []
-	for key in Global.keys_state:
-		if Global.keys_state[key]["state"] and Global.keys_state[key]["player"]==id :
-			available_key.append(key)
-	return available_key
+		events[event_name].set("previous_values", previous_values)
+
+	# ON START L'EVENEMENT
+	$EventDurationTimer.start()
 
 func select_random_key(id,n):
 	var bonus_list = []
@@ -151,8 +193,41 @@ func select_random_key(id,n):
 			bonus_list.append(list.pop_front())
 		return bonus_list
 
-func _on_timer_timeout() -> void:
-	start_new_event()
+func _process(delta: float) -> void:
+	# print timer remaining time for debug
+	if $EventDurationTimer.is_stopped() == false:
+		Tools.showdebugtext("event_timer", str(round($EventDurationTimer.time_left)) + "s")
+	
+	Tools.showdebugtext("power_malus", events["malus"])
+	Tools.showdebugtext("power_bonus", events["bonus"])
 
-func _ready() -> void:
-	$Timer.wait_time = 30
+# CANCEL REWARD
+func _on_event_duration_timer_timeout() -> void:
+	var event_name = ""
+	
+	# FOR BONUS
+	event_name = "bonus"
+	for key_button in events[event_name]["keys"]:
+		# si l'event est en cours
+		var bonus_value = events[event_name]["value"]
+		Global.keys_state[key_button].multiplicator /= bonus_value
+		# set to normal
+		Global.keys_state[key_button].event = "noevent"
+		# reset keys
+		events[event_name].set("keys", [])
+	
+	# FOR MALUS
+	event_name = "malus"
+	for key_button in events[event_name]["keys"]:
+		# si l'event est en cours
+		var malus_value = events[event_name]["value"]
+		# RESTORE PREVIOUS VALUE
+		var previous_value = events[event_name]["previous_values"].pop_front()
+		Global.keys_state[key_button].multiplicator = previous_value
+		# set to noevent
+		Global.keys_state[key_button].event = "noevent"
+		# reset keys
+		events[event_name].set("keys", [])
+
+	# ON RESTART L'EVENEMENT
+	$EventTriggerTimer.start()

@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://c3c2jtagehdlq"]
-
-[ext_resource type="Script" uid="uid://cfr44ff3xoiiw" path="res://Scenes/animation_menu.gd" id="1_s70py"]
-
-[node name="AnimationMenu" type="Node" unique_id=1726202515]
-script = ExtResource("1_s70py")

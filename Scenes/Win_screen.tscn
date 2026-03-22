@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://dixyrk6opuchb"]
+
+[ext_resource type="Script" uid="uid://bgco6jnolcy65" path="res://Scenes/win_screen.gd" id="1_3fjhh"]
+[ext_resource type="Texture2D" uid="uid://df6wyyw83slql" path="res://sprite/win_screen/j1_win.png" id="1_ge0e0"]
+[ext_resource type="Texture2D" uid="uid://cwowwp3xg5pdy" path="res://sprite/win_screen/j2_win.png" id="2_q7hpg"]
+[ext_resource type="FontFile" uid="uid://cbqljjgmopg8o" path="res://fonts/HOMEMADE 2.ttf" id="4_e3gb4"]
+
+[node name="WinScreen" type="Node2D" unique_id=898069156]
+script = ExtResource("1_3fjhh")
+
+[node name="J1" type="CanvasLayer" parent="." unique_id=1894368480]
+visible = false
+
+[node name="TIME_J1" type="TextureRect" parent="J1" unique_id=212376808]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.999997
+offset_right = 521.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.585, 0.585)
+texture = ExtResource("1_ge0e0")
+stretch_mode = 2
+
+[node name="WINNER" type="RichTextLabel" parent="J1" unique_id=1260547905]
+offset_left = 13.0
+offset_top = 66.0
+offset_right = 131.125
+offset_bottom = 90.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("4_e3gb4")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "WINNER : J1
+  000000000"
+fit_content = true
+vertical_alignment = 1
+
+[node name="LOSER" type="RichTextLabel" parent="J1" unique_id=1618933130]
+offset_left = 13.0
+offset_top = 99.0
+offset_right = 112.475
+offset_bottom = 116.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("4_e3gb4")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "LOSER : J2
+  000000000"
+fit_content = true
+vertical_alignment = 1
+
+[node name="RESTART" type="RichTextLabel" parent="J1" unique_id=72870169]
+offset_left = 13.0
+offset_top = 144.0
+offset_right = 112.475
+offset_bottom = 161.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("4_e3gb4")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "R TO RESTART"
+fit_content = true
+vertical_alignment = 1
+
+[node name="J2" type="CanvasLayer" parent="." unique_id=1735935268]
+visible = false
+
+[node name="TIME_J2" type="TextureRect" parent="J2" unique_id=62856371]
+offset_right = 533.0
+offset_bottom = 300.0
+scale = Vector2(0.585, 0.585)
+texture = ExtResource("2_q7hpg")
+
+[node name="WINNER" type="RichTextLabel" parent="J2" unique_id=921001804]
+offset_left = 179.0
+offset_top = 66.0
+offset_right = 297.125
+offset_bottom = 90.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("4_e3gb4")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "WINNER : J2
+  000000000"
+fit_content = true
+vertical_alignment = 1
+
+[node name="LOSER" type="RichTextLabel" parent="J2" unique_id=1434687799]
+offset_left = 179.0
+offset_top = 99.0
+offset_right = 278.475
+offset_bottom = 116.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("4_e3gb4")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "LOSER : J1
+  000000000"
+fit_content = true
+vertical_alignment = 1
+
+[node name="RESTART" type="RichTextLabel" parent="J2" unique_id=1499481069]
+offset_left = 197.0
+offset_top = 144.0
+offset_right = 296.475
+offset_bottom = 161.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("4_e3gb4")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "R TO RESTART"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1

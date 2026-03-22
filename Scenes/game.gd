@@ -5,7 +5,34 @@ var score_high = 1000.0
 var last_tier_j1 = 0
 var last_tier_j2 = 0
 
+func _on_countdown_timeout() -> void:
+	$GameTimer.start()
+	$CountdownUI.hide()
+	
+	# Start event timer
+	$EventManager/EventTriggerTimer.start()
+
+	# ENABLE ONE KEY BY PLAYER
+	# enable random key
+	var hmap_keys = Global.keys_state.keys()
+	var all_keys_j1 = hmap_keys.filter(func(id_name):
+		return Global.keys_state[id_name].player == 1
+	)
+	var all_keys_j2 = hmap_keys.filter(func(id_name):
+		return Global.keys_state[id_name].player == 2
+	)
+
+	# one random_key_j1
+	var random_key_j1 = all_keys_j1[randi() % all_keys_j1.size()]
+	Global.keys_state.get(random_key_j1).set("state", true)
+
+	# one random_key_j2
+	var random_key_j2 = all_keys_j2[randi() % all_keys_j2.size()]
+	Global.keys_state.get(random_key_j2).set("state", true)
+
+
 func _ready() -> void:
+	Global.init()
 	
 	# ENABLE ALL
 	#for i in $Keys.get_children():
@@ -14,8 +41,8 @@ func _ready() -> void:
 			#var key_instance: Key_button = instance
 			#Global.keys_state[key_instance.id_name].set("state", true)
 	# Tools.debug_enable = true
-	$AudioStreamPlayer.playing = true
-	$GameTimer.start()
+	$Countdown.one_shot = true
+	$Countdown.start()
 
 func update_screen() -> void:
 	for i in $Keys.get_children():
@@ -54,6 +81,12 @@ func update_screen() -> void:
 	$UI/Quest_j1.text = Global.text_j1.to_upper()
 	$UI/Quest_j2.text = Global.text_j2.to_upper()
 	
+	# display Timer
+	var minutes = int(Global.timer / 60)
+	var seconds = int(Global.timer % 60)
+	$UI/Timer_minutes.text = str(minutes).pad_zeros(2)
+	$UI/Timer_seconds.text = str(seconds).pad_zeros(2)
+	
 	if Global.current_floor_j1 != last_tier_j1:
 		var anim: AnimationPlayer = $PalierGauche.get_node("AnimationPlayer")
 		anim.play(&"SlideIN")
@@ -65,6 +98,8 @@ func update_screen() -> void:
 		anim.play(&"SlideIN")
 		Global.powers_available_j2 = true
 	last_tier_j2 = Global.current_floor_j2
+	
+	$CountdownUI/RichTextLabel.text = str(int($Countdown.time_left + 1))
 		
 
 func _process(delta: float) -> void:
@@ -96,6 +131,8 @@ func _on_game_timer_timeout() -> void:
 	if Global.timer <= 0 :
 		$GameTimer.stop()
 		if Global.score_j1 >= Global.score_j2 :
-			get_tree().change_scene_to_file("res://Scenes/Win_screen_1.tscn")
+			Global.winner = 1
+			get_tree().change_scene_to_file("res://Scenes/Win_screen.tscn")
 		else:
-			get_tree().change_scene_to_file("res://Scenes/Win_screen_2.tscn")
+			Global.winner = 2
+			get_tree().change_scene_to_file("res://Scenes/Win_screen.tscn")

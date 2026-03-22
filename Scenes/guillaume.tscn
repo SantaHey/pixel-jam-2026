@@ -4,81 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cb0wmtmmhmw3b" path="res://Scenes/key.tscn" id="1_h6jrl"]
 [ext_resource type="FontFile" uid="uid://cbqljjgmopg8o" path="res://fonts/HOMEMADE 2.ttf" id="2_h7id1"]
 [ext_resource type="PackedScene" uid="uid://dqn18vcfeca7h" path="res://Scenes/PalierGauche.tscn" id="3_268sd"]
+[ext_resource type="Script" uid="uid://cfr44ff3xoiiw" path="res://Scenes/animation_menu.gd" id="3_kj0bd"]
 [ext_resource type="PackedScene" uid="uid://bka0ogx3t1miv" path="res://Scenes/PalierDroite.tscn" id="3_n032j"]
-
-[sub_resource type="Animation" id="Animation_n032j"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(185.99998, 33)]
-}
-
-[sub_resource type="Animation" id="Animation_kj0bd"]
-resource_name = "new_animation"
-length = 1.9666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.16666667, 0.56666666, 0.93333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(200, 34), Vector2(0, 34), Vector2(-15, 34)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kj0bd"]
-_data = {
-&"RESET": SubResource("Animation_n032j"),
-&"new_animation": SubResource("Animation_kj0bd")
-}
-
-[sub_resource type="Animation" id="Animation_fbgld"]
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-200, 33)]
-}
-
-[sub_resource type="Animation" id="Animation_268sd"]
-resource_name = "new_animation"
-length = 1.9
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.46666667, 0.8, 1.1333333, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-200, 33), Vector2(-20, 33), Vector2(-5, 33), Vector2(-5, 33)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_n032j"]
-_data = {
-&"RESET": SubResource("Animation_fbgld"),
-&"new_animation": SubResource("Animation_268sd")
-}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7id1"]
 bg_color = Color(1, 1, 1, 1)
@@ -288,6 +215,80 @@ id_name = "point"
 position = Vector2(259, 112)
 id_name = "-"
 
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=713860676]
+offset_left = 6.0
+offset_top = 152.0
+offset_right = 152.0
+offset_bottom = 169.0
+theme_override_fonts/normal_font = ExtResource("2_h7id1")
+theme_override_font_sizes/normal_font_size = 9
+text = "AAAAA I'M QUESTING"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1778784425]
+offset_left = 165.0
+offset_top = 152.0
+offset_right = 311.0
+offset_bottom = 169.0
+theme_override_fonts/normal_font = ExtResource("2_h7id1")
+theme_override_font_sizes/normal_font_size = 9
+text = "AAAAA I'M QUESTING"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=332598403]
+offset_left = 135.0
+offset_top = 17.0
+offset_right = 166.0
+offset_bottom = 39.0
+theme_override_fonts/normal_font = ExtResource("2_h7id1")
+theme_override_font_sizes/normal_font_size = 17
+text = "00"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="." unique_id=1683367479]
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 70.0
+offset_bottom = 16.0
+theme_override_fonts/normal_font = ExtResource("2_h7id1")
+theme_override_font_sizes/normal_font_size = 8
+text = "SCORE:"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="." unique_id=134949159]
+offset_left = 173.0
+offset_top = 3.0
+offset_right = 238.0
+offset_bottom = 16.0
+theme_override_fonts/normal_font = ExtResource("2_h7id1")
+theme_override_font_sizes/normal_font_size = 8
+text = "SCORE:"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="." unique_id=133651036]
+offset_left = 139.0
+offset_top = 2.0
+offset_right = 170.0
+offset_bottom = 24.0
+theme_override_fonts/normal_font = ExtResource("2_h7id1")
+theme_override_font_sizes/normal_font_size = 12
+text = "00"
+metadata/_edit_use_anchors_ = true
+
+[node name="PalierDroite" parent="." unique_id=1679471378 instance=ExtResource("3_n032j")]
+position = Vector2(185.99998, 33)
+scale = Vector2(0.42, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PalierDroite" unique_id=827359165]
+libraries/ = SubResource("AnimationLibrary_kj0bd")
+
+[node name="Node2D" parent="." unique_id=583617968 instance=ExtResource("3_268sd")]
+position = Vector2(-200, 33)
+scale = Vector2(0.425, 0.425)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D" unique_id=1181263185]
+libraries/ = SubResource("AnimationLibrary_n032j")
+
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1782995425]
 offset_left = -17.0
 offset_top = 142.0
@@ -347,3 +348,24 @@ offset_left = 124.0
 offset_top = 34.0
 offset_right = 169.0
 offset_bottom = 35.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar2" type="ProgressBar" parent="." unique_id=892281243]
+offset_left = 13.0
+offset_top = 40.0
+offset_right = 112.0
+offset_bottom = 47.0
+theme_override_styles/background = SubResource("StyleBoxFlat_h7id1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fbgld")
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar3" type="ProgressBar" parent="." unique_id=993566042]
+offset_left = 176.0
+offset_top = 40.0
+offset_right = 275.0
+offset_bottom = 47.0
+theme_override_styles/background = SubResource("StyleBoxFlat_h7id1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fbgld")
+show_percentage = false
+metadata/_edit_use_anchors_ = true

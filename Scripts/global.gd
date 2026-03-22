@@ -351,7 +351,8 @@ var powers_state = {
 	}
 }
 
-var current_floor = 0
+var current_floor_j1 = 0
+var current_floor_j2 = 0
 
 var floors = {
 	0 : {

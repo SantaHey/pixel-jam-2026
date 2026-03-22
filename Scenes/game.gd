@@ -49,7 +49,10 @@ func update_screen() -> void:
 func _process(delta: float) -> void:
 	Tools.showdebugtext("fps", Engine.get_frames_per_second())
 	update_screen()
-
+	
+	# log texts
+	Tools.showdebugtext("text_j1", Global.text_j1)
+	Tools.showdebugtext("text_j2", Global. text_j2)
 
 
 func _on_game_timer_timeout() -> void:

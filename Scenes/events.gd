@@ -45,6 +45,13 @@ func start_new_event():
 	# Tools.showdebugtext("event_j2", "J2 doit appuyer " + str(event_target_presses) + " fois sur la touche " + j2_event_target_key_string)
 	#print("La récompense est un ", event_reward_type)
 
+	# challenge text
+	var displayed_text_j1 = "[CHALLENGE] Press only " + j1_event_target_key_string + " " + str(event_target_presses) + " times in a row !"
+	var displayed_text_j2 = "[CHALLENGE] Press only " + j2_event_target_key_string + " " + str(event_target_presses) + " times in a row !"
+
+	Global.text_j1 = displayed_text_j1
+	Global.text_j2 = displayed_text_j2
+
 func generate_event():
 	$EventTriggerTimer.stop()
 	var nb_pressed = randi_range(5,15)
@@ -85,6 +92,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		process_player_input(pressed_key_string)
 
 func process_player_input(pressed_key: String):
+	# if we are not in a event, return
+	if not is_event_active:
+		return
+
 	# On passe la touche en minuscule pour correspondre à ton dictionnaire ("Q" devient "q")
 	var lower_key = pressed_key.to_lower()
 	
@@ -106,21 +117,20 @@ func process_player_input(pressed_key: String):
 			# print("J1 OK ! Progression : ", j1_current_presses, "/", event_target_presses)
 			# Tools.showdebugtext("event_j1", "Progression J1 : " + str(j1_current_presses) + "/" + str(event_target_presses))
 
-			# DISPLAY TEXT
-			displayed_text_j1 = "Press only " + j1_event_target_key_string.upper() + " : " + str(j1_current_presses) + "/" + str(event_target_presses)
-
 			# WIN CONDITION
 			if j1_current_presses >= event_target_presses:
 				win_event(1)
-		else:
-			if j1_current_presses > 0:
-				j1_current_presses = 0
-				# print("Erreur J1 ! Le compteur retombe à 0.")
-				# Tools.showdebugtext("event_j1", "Erreur J1 ! Progression retombe à 0.")
-				
+			else:
 				# DISPLAY TEXT
-				# Text ERROR ! Press only B 10 times in a row
-				displayed_text_j1 = "ERROR ! Press only " + j1_event_target_key_string.upper() + " " + event_target_presses + " times in a row."
+				displayed_text_j1 = "Press only " + j1_event_target_key_string + " : " + str(j1_current_presses) + "/" + str(event_target_presses)
+		else:
+			j1_current_presses = 0
+			# print("Erreur J1 ! Le compteur retombe à 0.")
+			# Tools.showdebugtext("event_j1", "Erreur J1 ! Progression retombe à 0.")
+			
+			# DISPLAY TEXT
+			# Text ERROR ! Press only B 10 times in a row
+			displayed_text_j1 = "ERROR ! Press only " + j1_event_target_key_string + " " + str(event_target_presses) + " times in a row."
 				
 	# 4. Logique pour le JOUEUR 2
 	elif player_id == 2:
@@ -129,24 +139,26 @@ func process_player_input(pressed_key: String):
 			# print("J2 OK ! Progression : ", j2_current_presses, "/", event_target_presses)
 			# Tools.showdebugtext("event_j2", "Progression J2 : " + str(j2_current_presses) + "/" + str(event_target_presses))
 
-			# DISPLAY TEXT
-			displayed_text_j2 = "Press only " + j2_event_target_key_string.upper + " : " + str(j2_current_presses) + "/" + str(event_target_presses)
-
 			# WIN CONDITION
 			if j2_current_presses >= event_target_presses:
 				win_event(2)
-		else:
-			if j2_current_presses > 0:
-				j2_current_presses = 0
-				# print("Erreur J2 ! Le compteur retombe à 0.")
-				# Tools.showdebugtext("event_j2", "Erreur J2 ! Progression retombe à 0.")
-				
+			else:
 				# DISPLAY TEXT
-				displayed_text_j2 = "ERROR ! Press only " + j2_event_target_key_string.upper() + " " + event_target_presses + " times in a row."
+				displayed_text_j2 = "Press only " + j2_event_target_key_string + " : " + str(j2_current_presses) + "/" + str(event_target_presses)
+		else:
+			# Tools.showdebugtext("j2_current_presses", j2_current_presses)
+			j2_current_presses = 0
+			# print("Erreur J2 ! Le compteur retombe à 0.")
+			# Tools.showdebugtext("event_j2", "Erreur J2 ! Progression retombe à 0.")
+			
+			# DISPLAY TEXT
+			displayed_text_j2 = "ERROR ! Press only " + j2_event_target_key_string + " " + str(event_target_presses) + " times in a row."
 
 	# DISPLAY TEXT
-	Global.text_j1 = displayed_text_j1
-	Global.text_j2 = displayed_text_j2
+	if displayed_text_j1 != "":
+		Global.text_j1 = displayed_text_j1
+	if displayed_text_j2 != "":
+		Global.text_j2 = displayed_text_j2
 
 # EVENT REWARD
 func win_event(player_id):
@@ -156,12 +168,12 @@ func win_event(player_id):
 	
 	if event_reward_type == "bonus":
 		# print("Le joueur ", player_id, " voit ", event_reward_power, " de ses touches améliorées")
-		trigger_event("bonus", player_id, event_reward_power)
+		trigger_reward("bonus", player_id, event_reward_power)
 	else:
 		var loser_id = 1
 		if player_id == 1:
 			loser_id = 2
-		trigger_event("malus", loser_id, event_reward_power)
+		trigger_reward("malus", loser_id, event_reward_power)
 		# print("Le joueur ", loser_id, " subit un malus sur ", event_reward_power, " touches")
 
 
@@ -177,14 +189,19 @@ var events = {
 	},
 }
 
-func trigger_event(event_name, id,n):
+func trigger_reward(event_name, winner_id, n):
 	var displayed_text_winner = ""
 	var displayed_text_loser = ""
+	
+	# Get loser_id
+	var loser_id = 1
+	if winner_id == 1:
+		loser_id = 2
 
 	# BONUS EVENT
 	if event_name == "bonus":
 		# print("trigger bonus for player ", id)
-		var selected_keys = select_random_key(id,n)
+		var selected_keys = select_random_key(winner_id,n)
 		# print(selected_keys)
 		events["bonus"].set("keys", selected_keys)
 		
@@ -204,7 +221,7 @@ func trigger_event(event_name, id,n):
 	# MALUS EVENT
 	if event_name == "malus":
 		# print("trigger malus for player ", id)
-		var selected_keys = select_random_key(id,n)
+		var selected_keys = select_random_key(loser_id,n)
 		# print(selected_keys)
 		events[event_name].set("keys", selected_keys)
 		
@@ -226,7 +243,10 @@ func trigger_event(event_name, id,n):
 		displayed_text_winner += "Event won, you avoided the malus !"
 
 	# DISPLAY TEXT
-	if id == 1:
+	Tools.showdebugtext("displayed_text_winner", displayed_text_winner)
+	Tools.showdebugtext("displayed_text_loser", displayed_text_loser)
+
+	if winner_id == 1:
 		# player1 won
 		Global.text_j1 = displayed_text_winner
 		Global.text_j2 = displayed_text_loser
@@ -289,4 +309,6 @@ func _on_event_duration_timer_timeout() -> void:
 		events[event_name].set("keys", [])
 
 	# ON RESTART L'EVENEMENT
+	Global.text_j1 = "..."
+	Global.text_j2 = "..."
 	$EventTriggerTimer.start()

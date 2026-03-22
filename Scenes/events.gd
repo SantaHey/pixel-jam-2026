@@ -161,19 +161,16 @@ func process_player_input(pressed_key: String):
 		Global.text_j2 = displayed_text_j2
 
 # EVENT REWARD
-func win_event(player_id):
+func win_event(winner_id):
 	# print("🏆 Le Joueur ", player_id, " a terminé l'event en premier !")
 
 	is_event_active = false
 	
 	if event_reward_type == "bonus":
 		# print("Le joueur ", player_id, " voit ", event_reward_power, " de ses touches améliorées")
-		trigger_reward("bonus", player_id, event_reward_power)
+		trigger_reward("bonus", winner_id, event_reward_power)
 	else:
-		var loser_id = 1
-		if player_id == 1:
-			loser_id = 2
-		trigger_reward("malus", loser_id, event_reward_power)
+		trigger_reward("malus", winner_id, event_reward_power)
 		# print("Le joueur ", loser_id, " subit un malus sur ", event_reward_power, " touches")
 
 

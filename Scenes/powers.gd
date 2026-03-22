@@ -1,14 +1,14 @@
-extends Node2D
+extends Node
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("1"):
 		power_upgrade_one_random(1)
 		
 	# display
-	Tools.showdebugtext("1_q", key("q"))
-	Tools.showdebugtext("1_w", key("w"))
-	Tools.showdebugtext("2_z", key("z"))
-	Tools.showdebugtext("2_u", key("u"))
+	#Tools.showdebugtext("1_q", key("q"))
+	#Tools.showdebugtext("1_w", key("w"))
+	#Tools.showdebugtext("2_z", key("z"))
+	#Tools.showdebugtext("2_u", key("u"))
 
 func power_upgrade_one_random(player_num):
 	var keys = Global.keys_state.keys()

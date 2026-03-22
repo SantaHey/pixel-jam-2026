@@ -10,6 +10,7 @@ func _ready() -> void:
 			var key_instance: Key_button = instance
 			Global.keys_state[key_instance.id_name].set("state", true)
 	Tools.debug_enable = true
+	$GameTimer.start()
 
 func update_screen() -> void:
 	for i in $Keys.get_children():
@@ -48,3 +49,9 @@ func update_screen() -> void:
 func _process(delta: float) -> void:
 	Tools.showdebugtext("fps", Engine.get_frames_per_second())
 	update_screen()
+
+
+
+func _on_game_timer_timeout() -> void:
+	Global.timer-=1
+	print(Global.timer)

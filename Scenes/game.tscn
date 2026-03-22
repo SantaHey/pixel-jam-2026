@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://b73mmmfcne7k4"]
 
-[ext_resource type="PackedScene" uid="uid://cb0wmtmmhmw3b" path="res://Scenes/key.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" path="res://Scenes/key.tscn" id="1_ebmjs"]
 [ext_resource type="FontFile" uid="uid://cbqljjgmopg8o" path="res://fonts/HOMEMADE 2.ttf" id="1_qxrlw"]
 [ext_resource type="Script" uid="uid://l60rnim843qp" path="res://Scenes/game.gd" id="1_wrm1d"]
-[ext_resource type="Script" uid="uid://dsenhg60xfy33" path="res://Scenes/powers.gd" id="2_qxrlw"]
+[ext_resource type="Script" uid="uid://dsenhg60xfy33" path="res://Scenes/floor_powers.gd" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://dkyfjhu3xyg4m" path="res://Scenes/score_manager.gd" id="4_3dryh"]
-[ext_resource type="PackedScene" uid="uid://bka0ogx3t1miv" path="res://Scenes/PalierDroite.tscn" id="6_1l0tm"]
-[ext_resource type="PackedScene" uid="uid://dqn18vcfeca7h" path="res://Scenes/PalierGauche.tscn" id="7_v158k"]
+[ext_resource type="PackedScene" path="res://Scenes/PalierDroite.tscn" id="6_1l0tm"]
+[ext_resource type="PackedScene" path="res://Scenes/PalierGauche.tscn" id="7_v158k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7id1"]
 bg_color = Color(1, 1, 1, 1)
@@ -106,7 +106,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Quest_j1" type="RichTextLabel" parent="UI" unique_id=713860676]
+[node name="0" type="RichTextLabel" parent="UI" unique_id=713860676]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 152.0
@@ -340,3 +340,8 @@ visible = false
 
 [node name="PalierGauche" parent="." unique_id=583617968 instance=ExtResource("7_v158k")]
 visible = false
+
+[node name="GameTimer" type="Timer" parent="." unique_id=239305828]
+autostart = true
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

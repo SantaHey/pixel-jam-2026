@@ -46,8 +46,8 @@ func start_new_event():
 	#print("La récompense est un ", event_reward_type)
 
 	# challenge text
-	var displayed_text_j1 = "CHALLENGE : Press only " + j1_event_target_key_string + " " + str(event_target_presses) + " times in a row !"
-	var displayed_text_j2 = "CHALLENGE : Press only " + j2_event_target_key_string + " " + str(event_target_presses) + " times in a row !"
+	var displayed_text_j1 = "CHALLENGE : Press only " + j1_event_target_key_string + " " + str(event_target_presses) + " times in a row ."
+	var displayed_text_j2 = "CHALLENGE : Press only " + j2_event_target_key_string + " " + str(event_target_presses) + " times in a row ."
 
 	Global.text_j1 = displayed_text_j1
 	Global.text_j2 = displayed_text_j2
@@ -117,7 +117,7 @@ func process_player_input(pressed_key: String):
 	if player_id == 1:
 		if lower_key == j1_event_target_key_string:
 			j1_current_presses += 1
-			# print("J1 OK ! Progression : ", j1_current_presses, "/", event_target_presses)
+			# print("J1 OK . Progression : ", j1_current_presses, "/", event_target_presses)
 			# Tools.showdebugtext("event_j1", "Progression J1 : " + str(j1_current_presses) + "/" + str(event_target_presses))
 
 			# WIN CONDITION
@@ -128,18 +128,18 @@ func process_player_input(pressed_key: String):
 				displayed_text_j1 = "Press only " + j1_event_target_key_string + " : " + str(j1_current_presses) + "/" + str(event_target_presses)
 		else:
 			j1_current_presses = 0
-			# print("Erreur J1 ! Le compteur retombe à 0.")
-			# Tools.showdebugtext("event_j1", "Erreur J1 ! Progression retombe à 0.")
+			# print("Erreur J1 . Le compteur retombe à 0.")
+			# Tools.showdebugtext("event_j1", "Erreur J1 . Progression retombe à 0.")
 			
 			# DISPLAY TEXT
-			# Text ERROR ! Press only B 10 times in a row
-			displayed_text_j1 = "ERROR ! Press only " + j1_event_target_key_string + " " + str(event_target_presses) + " times in a row."
+			# Text ERROR . Press only B 10 times in a row
+			displayed_text_j1 = "ERROR . Press only " + j1_event_target_key_string + " " + str(event_target_presses) + " times in a row."
 				
 	# 4. Logique pour le JOUEUR 2
 	elif player_id == 2:
 		if lower_key == j2_event_target_key_string:
 			j2_current_presses += 1
-			# print("J2 OK ! Progression : ", j2_current_presses, "/", event_target_presses)
+			# print("J2 OK . Progression : ", j2_current_presses, "/", event_target_presses)
 			# Tools.showdebugtext("event_j2", "Progression J2 : " + str(j2_current_presses) + "/" + str(event_target_presses))
 
 			# WIN CONDITION
@@ -151,11 +151,11 @@ func process_player_input(pressed_key: String):
 		else:
 			# Tools.showdebugtext("j2_current_presses", j2_current_presses)
 			j2_current_presses = 0
-			# print("Erreur J2 ! Le compteur retombe à 0.")
-			# Tools.showdebugtext("event_j2", "Erreur J2 ! Progression retombe à 0.")
+			# print("Erreur J2 . Le compteur retombe à 0.")
+			# Tools.showdebugtext("event_j2", "Erreur J2 . Progression retombe à 0.")
 			
 			# DISPLAY TEXT
-			displayed_text_j2 = "ERROR ! Press only " + j2_event_target_key_string + " " + str(event_target_presses) + " times in a row."
+			displayed_text_j2 = "ERROR . Press only " + j2_event_target_key_string + " " + str(event_target_presses) + " times in a row."
 
 	# DISPLAY TEXT
 	if displayed_text_j1 != "":
@@ -165,7 +165,7 @@ func process_player_input(pressed_key: String):
 
 # EVENT REWARD
 func win_event(winner_id):
-	# print("🏆 Le Joueur ", player_id, " a terminé l'event en premier !")
+	# print("🏆 Le Joueur ", player_id, " a terminé l'event en premier .")
 
 	is_event_active = false
 	
@@ -214,7 +214,7 @@ func trigger_reward(event_name, winner_id, n):
 		displayed_text_winner += "Event won : "
 		for hmap_key in selected_keys:
 			displayed_text_winner += hmap_key + " "
-		displayed_text_winner += "boosted by " + str(bonus_value) + " for " + str(round($EventDurationTimer.wait_time)) + "s!"
+		displayed_text_winner += "boosted by " + str(bonus_value) + " for " + str(round($EventDurationTimer.wait_time)) + "s."
 
 		displayed_text_loser += "Event lost, you missed the bonus..."
 	
@@ -238,9 +238,9 @@ func trigger_reward(event_name, winner_id, n):
 		displayed_text_loser += "Event lost : "
 		for hmap_key in selected_keys:
 			displayed_text_loser += hmap_key + " "
-		displayed_text_loser += "malused by " + str(malus_value) + " for " + str(round($EventDurationTimer.wait_time)) + "s!"
+		displayed_text_loser += "malused by " + str(malus_value) + " for " + str(round($EventDurationTimer.wait_time)) + "s."
 
-		displayed_text_winner += "Event won, you avoided the malus !"
+		displayed_text_winner += "Event won, you avoided the malus ."
 
 	# DISPLAY TEXT
 	Tools.showdebugtext("displayed_text_winner", displayed_text_winner)

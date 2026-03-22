@@ -54,7 +54,7 @@ func unlock_random_keys(player_num):
 	var displayed_text = "Keys "
 	for hmap_key in random_locked_unhmap_keys:
 		displayed_text += hmap_key + " "
-	displayed_text += "unlocked!"
+	displayed_text += "unlocked."
 
 	if player_num == 1:
 		Global.text_j1 = displayed_text
@@ -84,7 +84,7 @@ func boost_random_keys(player_num):
 	var displayed_text = "Keys "
 	for hmap_key in random_unlocked_unhmap_keys:
 		displayed_text += hmap_key + " "
-	displayed_text += "boosted by " + str(BOOST_RANDOM_KEYS_VALUE) + "!"
+	displayed_text += "boosted by " + str(BOOST_RANDOM_KEYS_VALUE) + "."
 
 	if player_num == 1:
 		Global.text_j1 = displayed_text
@@ -106,7 +106,7 @@ func boost_all_keys(player_num):
 	
 	# DISPLAY TEXT
 	# keys XXX boosted
-	var displayed_text = "All keys boosted by " + str(BOOST_ALL_KEYS_VALUE) + "!"
+	var displayed_text = "All keys boosted by " + str(BOOST_ALL_KEYS_VALUE) + "."
 
 	if player_num == 1:
 		Global.text_j1 = displayed_text

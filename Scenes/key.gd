@@ -2,7 +2,7 @@ extends Sprite2D
 
 class_name Key_button
 
-@export var id_name = "q"
+@export var id_name:String = "q"
 
 var t_up
 var t_down
@@ -31,6 +31,9 @@ func load_textures():
 func _process(delta: float) -> void:
 	if last != pressed and pressed:
 		_create_particles()
+		var pitcher = randf_range(-0.3, 0.3)
+		$AudioStreamPlayer.pitch_scale = 1-pitcher
+		$AudioStreamPlayer.play()
 	
 	last = pressed
 	

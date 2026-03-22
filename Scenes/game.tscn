@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://l60rnim843qp" path="res://Scenes/game.gd" id="1_wrm1d"]
 [ext_resource type="Script" uid="uid://dsenhg60xfy33" path="res://Scenes/floor_powers.gd" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://dkyfjhu3xyg4m" path="res://Scenes/score_manager.gd" id="4_3dryh"]
-[ext_resource type="PackedScene" path="res://Scenes/PalierDroite.tscn" id="6_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://bka0ogx3t1miv" path="res://Scenes/PalierDroite.tscn" id="6_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://wd2n67ypj1q7" path="res://Scenes/events.tscn" id="6_v158k"]
 [ext_resource type="PackedScene" uid="uid://dqn18vcfeca7h" path="res://Scenes/PalierGauche.tscn" id="7_v158k"]
 [ext_resource type="AudioStream" uid="uid://s43lyxo1w7qs" path="res://Audios/Combat Music Loop.ogg" id="8_v158k"]

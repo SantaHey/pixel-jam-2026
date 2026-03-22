@@ -32,6 +32,7 @@ func start_new_event():
 	var event_data = generate_event()
 	event_target_presses = event_data[0]
 	j1_event_target_key_string = event_data[1][0]
+	Tools.showdebugtext("event_data", event_data)
 	j2_event_target_key_string = event_data[1][1]
 	is_event_active = true
 	
@@ -53,7 +54,7 @@ func generate_event():
 	var nb_pressed = randi_range(5,15)
 	var keys = get_random_keys()
 	#print(nb_pressed)
-	#print(index_key)
+	#print(keys)
 	return [nb_pressed,keys]
 
 func get_random_keys():
@@ -64,7 +65,7 @@ func get_random_keys():
 	#Get the first key of the list (previously shuffle)
 	var j1k = l1.pop_front()
 	var j2k = l2.pop_front()
-	return [j1_event_target_key_string, j2_event_target_key_string]
+	return [j1k, j2k]
 
 func get_available_key(id):
 	var available_key = []

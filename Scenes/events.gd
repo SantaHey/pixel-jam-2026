@@ -151,11 +151,8 @@ func select_random_key(id,n):
 			bonus_list.append(list.pop_front())
 		return bonus_list
 
-func _process(delta: float) -> void:
-	pass
-
 func _on_timer_timeout() -> void:
 	start_new_event()
 
 func _ready() -> void:
-	$Timer.wait_time = 3
+	$Timer.wait_time = 30

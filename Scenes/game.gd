@@ -48,9 +48,14 @@ func update_screen() -> void:
 	$UI/Floor_text_j2.text = "TIER: " + str(Global.current_floor_j2)
 	
 	if Global.current_floor_j1 != last_tier_j1:
-		var anim: AnimationPlayer = $PalierDroite.get_node("AnimationPlayer")
-		print("ohsamère")
+		var anim: AnimationPlayer = $PalierGauche.get_node("AnimationPlayer")
+		anim.play(&"SlideIN")
 	last_tier_j1 = Global.current_floor_j1
+	
+	if Global.current_floor_j2 != last_tier_j2:
+		var anim: AnimationPlayer = $PalierDroite.get_node("AnimationPlayer")
+		anim.play(&"SlideIN")
+	last_tier_j2 = Global.current_floor_j2
 		
 
 func _process(delta: float) -> void:

@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(400, 33)]
 }
 
 [sub_resource type="Animation" id="Animation_kj0bd"]
@@ -60,6 +60,7 @@ _data = {
 }
 
 [node name="PalierDroite" type="Node2D" unique_id=1679471378]
+position = Vector2(400, 33)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=150710287]
 libraries/ = SubResource("AnimationLibrary_faxgj")
@@ -89,52 +90,52 @@ color = Color(0.96862745, 0.94509804, 0.62352943, 1)
 position = Vector2(50, 34)
 
 [node name="ColorRect" type="ColorRect" parent="PalierDroite" unique_id=416460512]
-offset_left = 414.0
-offset_top = 93.0
-offset_right = 728.0
-offset_bottom = 174.0
+offset_left = 363.0
+offset_top = 54.0
+offset_right = 677.0
+offset_bottom = 135.0
 color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="PalierDroite" unique_id=1245595386]
-position = Vector2(428, 109)
+position = Vector2(377, 70)
 texture = ExtResource("1_faxgj")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PalierDroite" unique_id=1528585789]
-offset_left = 440.0
-offset_top = 102.0
-offset_right = 511.0
-offset_bottom = 125.0
+offset_left = 389.0
+offset_top = 63.0
+offset_right = 460.0
+offset_bottom = 86.0
 theme_override_fonts/normal_font = ExtResource("2_yrm3b")
 text = "+1 KEY"
 
 [node name="Sprite2D2" type="Sprite2D" parent="PalierDroite" unique_id=625172433]
-position = Vector2(428, 131)
+position = Vector2(377, 92)
 texture = ExtResource("3_xuasw")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="PalierDroite" unique_id=268939292]
-offset_left = 440.0
-offset_top = 125.0
-offset_right = 735.0
-offset_bottom = 148.0
+offset_left = 389.0
+offset_top = 86.0
+offset_right = 684.0
+offset_bottom = 109.0
 theme_override_fonts/normal_font = ExtResource("2_yrm3b")
 text = "+10 SCORE FOR A RANDOM KEY"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="PalierDroite" unique_id=1194868338]
-offset_left = 440.0
-offset_top = 147.0
-offset_right = 680.0
-offset_bottom = 170.0
+offset_left = 389.0
+offset_top = 108.0
+offset_right = 629.0
+offset_bottom = 131.0
 theme_override_fonts/normal_font = ExtResource("2_yrm3b")
 text = "+2 SCORE ON ALL KEYS"
 
 [node name="Sprite2D3" type="Sprite2D" parent="PalierDroite" unique_id=1466846559]
-position = Vector2(428, 153)
+position = Vector2(377, 114)
 texture = ExtResource("4_cw883")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="PalierDroite" unique_id=1438584393]
-offset_left = 414.0
-offset_top = 93.0
-offset_right = 728.0
-offset_bottom = 174.0
+offset_left = 363.0
+offset_top = 54.0
+offset_right = 677.0
+offset_bottom = 135.0
 border_color = Color(0.54901963, 0.7764706, 0.9019608, 1)
 border_width = 1.2

@@ -2,6 +2,9 @@ extends Node2D
 
 var score_high = 1000.0
 
+var last_tier_j1 = 0
+var last_tier_j2 = 0
+
 func _ready() -> void:
 	# ENABLE ALL
 	for i in $Keys.get_children():
@@ -44,6 +47,11 @@ func update_screen() -> void:
 	$UI/Floor_text_j1.text = "TIER: " + str(Global.current_floor_j1)
 	$UI/Floor_text_j2.text = "TIER: " + str(Global.current_floor_j2)
 	
+	if Global.current_floor_j1 != last_tier_j1:
+		var anim: AnimationPlayer = $PalierDroite.get_node("AnimationPlayer")
+		print("ohsamère")
+	last_tier_j1 = Global.current_floor_j1
+		
 
 func _process(delta: float) -> void:
 	Tools.showdebugtext("fps", Engine.get_frames_per_second())

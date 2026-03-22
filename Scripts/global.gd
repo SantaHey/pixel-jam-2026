@@ -53,7 +53,8 @@ var keys_state = {
 		"col" : 0,
 		"state" : true,
 		"multiplicator" : 1,
-		"pressed" : false
+		"pressed" : false,
+		"eventstate" : "normal",
 	},
 	"w" : {
 		"player" : 1,

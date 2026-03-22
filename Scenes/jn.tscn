@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://o764sthex8vw"]
-
-[node name="Jn" type="Node2D" unique_id=1588798716]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=243759568]
-offset_right = 170.0
-offset_bottom = 36.0
-text = "COUCOU L'ÉQUIPE"

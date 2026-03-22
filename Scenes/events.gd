@@ -40,9 +40,9 @@ func start_new_event():
 	is_event_active = true
 	
 	#print("Le joueur 1 doit appuyer ", event_target_presses, " fois sur la touche ", j1_event_target_key_string)
-	Tools.showdebugtext("event_j1", "J1 doit appuyer " + str(event_target_presses) + " fois sur la touche " + j1_event_target_key_string)
+	# Tools.showdebugtext("event_j1", "J1 doit appuyer " + str(event_target_presses) + " fois sur la touche " + j1_event_target_key_string)
 	#print("Le joueur 2 doit appuyer ", event_target_presses, " fois sur la touche ", j2_event_target_key_string)
-	Tools.showdebugtext("event_j2", "J2 doit appuyer " + str(event_target_presses) + " fois sur la touche " + j2_event_target_key_string)
+	# Tools.showdebugtext("event_j2", "J2 doit appuyer " + str(event_target_presses) + " fois sur la touche " + j2_event_target_key_string)
 	#print("La récompense est un ", event_reward_type)
 
 func generate_event():
@@ -95,33 +95,58 @@ func process_player_input(pressed_key: String):
 	# 2. On identifie à quel joueur appartient la touche pressée
 	var player_id = Global.keys_state[lower_key]["player"]
 	
+	# DISPLAY
+	var displayed_text_j1 = ""
+	var displayed_text_j2 = ""
+
 	# 3. Logique pour le JOUEUR 1
 	if player_id == 1:
 		if lower_key == j1_event_target_key_string:
 			j1_current_presses += 1
 			# print("J1 OK ! Progression : ", j1_current_presses, "/", event_target_presses)
-			Tools.showdebugtext("event_j1", "Progression J1 : " + str(j1_current_presses) + "/" + str(event_target_presses))
+			# Tools.showdebugtext("event_j1", "Progression J1 : " + str(j1_current_presses) + "/" + str(event_target_presses))
+
+			# DISPLAY TEXT
+			displayed_text_j1 = "Press only " + j1_event_target_key_string.upper() + " : " + str(j1_current_presses) + "/" + str(event_target_presses)
+
+			# WIN CONDITION
 			if j1_current_presses >= event_target_presses:
 				win_event(1)
 		else:
 			if j1_current_presses > 0:
 				j1_current_presses = 0
 				# print("Erreur J1 ! Le compteur retombe à 0.")
-				Tools.showdebugtext("event_j1", "Erreur J1 ! Progression retombe à 0.")
+				# Tools.showdebugtext("event_j1", "Erreur J1 ! Progression retombe à 0.")
+				
+				# DISPLAY TEXT
+				# Text ERROR ! Press only B 10 times in a row
+				displayed_text_j1 = "ERROR ! Press only " + j1_event_target_key_string.upper() + " " + event_target_presses + " times in a row."
 				
 	# 4. Logique pour le JOUEUR 2
 	elif player_id == 2:
 		if lower_key == j2_event_target_key_string:
 			j2_current_presses += 1
 			# print("J2 OK ! Progression : ", j2_current_presses, "/", event_target_presses)
-			Tools.showdebugtext("event_j2", "Progression J2 : " + str(j2_current_presses) + "/" + str(event_target_presses))
+			# Tools.showdebugtext("event_j2", "Progression J2 : " + str(j2_current_presses) + "/" + str(event_target_presses))
+
+			# DISPLAY TEXT
+			displayed_text_j2 = "Press only " + j2_event_target_key_string.upper + " : " + str(j2_current_presses) + "/" + str(event_target_presses)
+
+			# WIN CONDITION
 			if j2_current_presses >= event_target_presses:
 				win_event(2)
 		else:
 			if j2_current_presses > 0:
 				j2_current_presses = 0
 				# print("Erreur J2 ! Le compteur retombe à 0.")
-				Tools.showdebugtext("event_j2", "Erreur J2 ! Progression retombe à 0.")
+				# Tools.showdebugtext("event_j2", "Erreur J2 ! Progression retombe à 0.")
+				
+				# DISPLAY TEXT
+				displayed_text_j2 = "ERROR ! Press only " + j2_event_target_key_string.upper() + " " + event_target_presses + " times in a row."
+
+	# DISPLAY TEXT
+	Global.text_j1 = displayed_text_j1
+	Global.text_j2 = displayed_text_j2
 
 # EVENT REWARD
 func win_event(player_id):

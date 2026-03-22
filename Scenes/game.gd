@@ -2,14 +2,19 @@ extends Node2D
 
 var score_high = 1000.0
 
+var last_tier_j1 = 0
+var last_tier_j2 = 0
+
 func _ready() -> void:
+	
 	# ENABLE ALL
-	for i in $Keys.get_children():
-		var instance = i
-		if is_instance_of(instance, Key_button):
-			var key_instance: Key_button = instance
-			Global.keys_state[key_instance.id_name].set("state", true)
+	#for i in $Keys.get_children():
+		#var instance = i
+		#if is_instance_of(instance, Key_button):
+			#var key_instance: Key_button = instance
+			#Global.keys_state[key_instance.id_name].set("state", true)
 	Tools.debug_enable = true
+	$AudioStreamPlayer.playing = true
 	$GameTimer.start()
 
 func update_screen() -> void:
@@ -45,13 +50,44 @@ func update_screen() -> void:
 	$UI/Floor_text_j1.text = "TIER: " + str(Global.current_floor_j1)
 	$UI/Floor_text_j2.text = "TIER: " + str(Global.current_floor_j2)
 	
+	# display quest text
+	$UI/Quest_j1.text = Global.text_j1.to_upper()
+	$UI/Quest_j2.text = Global.text_j2.to_upper()
+	
+	if Global.current_floor_j1 != last_tier_j1:
+		var anim: AnimationPlayer = $PalierGauche.get_node("AnimationPlayer")
+		anim.play(&"SlideIN")
+		Global.powers_available_j1 = true
+	last_tier_j1 = Global.current_floor_j1
+	
+	if Global.current_floor_j2 != last_tier_j2:
+		var anim: AnimationPlayer = $PalierDroite.get_node("AnimationPlayer")
+		anim.play(&"SlideIN")
+		Global.powers_available_j2 = true
+	last_tier_j2 = Global.current_floor_j2
+		
 
 func _process(delta: float) -> void:
 	Tools.showdebugtext("fps", Engine.get_frames_per_second())
 	Tools.showdebugtext("text_j1", Global.text_j1)
 	Tools.showdebugtext("text_j2", Global.text_j2)
 	update_screen()
+	
+	# log texts
+	Tools.showdebugtext("text_j1", Global.text_j1)
+	Tools.showdebugtext("text_j2", Global. text_j2)
 
+
+func _on_floor_powers_power_chosen(j:int) -> void:
+	print("Chosen on player " + str(j))
+	if j == 1:
+		var anim: AnimationPlayer = $PalierGauche.get_node("AnimationPlayer")
+		Global.powers_available_j1 = false
+		anim.play(&"SlideOUT")
+	else:
+		var anim: AnimationPlayer = $PalierDroite.get_node("AnimationPlayer")
+		Global.powers_available_j2 = false
+		anim.play(&"SlideOUT")
 
 
 func _on_game_timer_timeout() -> void:

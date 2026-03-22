@@ -23,6 +23,7 @@ Global="*uid://b48b473jnnjrr"
 
 window/size/viewport_width=300
 window/size/viewport_height=175
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]

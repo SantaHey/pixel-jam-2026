@@ -15,7 +15,7 @@ var keys_state = {
 		"state" : true,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"w" : {
 		"player" : 1,
@@ -24,7 +24,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"e" : {
 		"player" : 1,
@@ -33,7 +33,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"r" : {
 		"player" : 1,
@@ -42,7 +42,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"t" : {
 		"player" : 1,
@@ -51,7 +51,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	# Rangée ASDFG
 	"a" : {
@@ -61,7 +61,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"s" : {
 		"player" : 1,
@@ -70,7 +70,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"d" : {
 		"player" : 1,
@@ -79,7 +79,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"f" : {
 		"player" : 1,
@@ -88,7 +88,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"g" : {
 		"player" : 1,
@@ -97,7 +97,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	# Rangée YXCVB
 	"y" : {
@@ -107,7 +107,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"x" : {
 		"player" : 1,
@@ -116,7 +116,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"c" : {
 		"player" : 1,
@@ -125,7 +125,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"v" : {
 		"player" : 1,
@@ -134,7 +134,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"b" : {
 		"player" : 1,
@@ -143,7 +143,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 
 	# ── Player 2 ──────────────────────────────────────────
@@ -155,7 +155,7 @@ var keys_state = {
 		"state" : true,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"u" : {
 		"player" : 2,
@@ -164,7 +164,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"i" : {
 		"player" : 2,
@@ -173,7 +173,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"o" : {
 		"player" : 2,
@@ -182,7 +182,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"p" : {
 		"player" : 2,
@@ -191,7 +191,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	# Rangée HJKLé
 	"h" : {
@@ -201,7 +201,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"j" : {
 		"player" : 2,
@@ -210,7 +210,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"k" : {
 		"player" : 2,
@@ -219,7 +219,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"l" : {
 		"player" : 2,
@@ -228,7 +228,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"é" : {
 		"player" : 2,
@@ -237,7 +237,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	# Rangée NM,.-
 	"n" : {
@@ -247,7 +247,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"m" : {
 		"player" : 2,
@@ -256,7 +256,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"," : {
 		"player" : 2,
@@ -265,7 +265,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"point" : {
 		"player" : 2,
@@ -274,7 +274,7 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 	"-" : {
 		"player" : 2,
@@ -283,11 +283,12 @@ var keys_state = {
 		"state" : false,
 		"multiplicator" : 1,
 		"pressed" : false,
-		"event" : "normal",
+		"event" : "noevent",
 	},
 }
 
-var powers_available = true
+var powers_available_j1 = false
+var powers_available_j2 = false
 
 var powers_state = {
 	"1" : {

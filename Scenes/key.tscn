@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://dl6yv5jb5ncde" path="res://Scenes/key.gd" id="1_ut0wq"]
 [ext_resource type="FontFile" uid="uid://cbqljjgmopg8o" path="res://fonts/HOMEMADE 2.ttf" id="2_udxw8"]
 [ext_resource type="Texture2D" uid="uid://b7iu7wl4it6nk" path="res://sprite/Particles_sheet.png" id="3_brn0f"]
+[ext_resource type="AudioStream" uid="uid://6ro1ri35rm8m" path="res://Audios/key.ogg" id="4_lc1k7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lc1k7"]
 particles_animation = true
-particles_anim_h_frames = 10
+particles_anim_h_frames = 11
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
@@ -40,7 +41,7 @@ offset_top = 21.0
 offset_right = 19.0
 offset_bottom = 61.0
 theme_override_fonts/normal_font = ExtResource("2_udxw8")
-theme_override_font_sizes/normal_font_size = 3
+theme_override_font_sizes/normal_font_size = 4
 text = "12"
 horizontal_alignment = 1
 
@@ -55,3 +56,7 @@ color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 [node name="Placeholder" type="ColorRect" parent="." unique_id=942721355]
 offset_right = 15.0
 offset_bottom = 15.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=78973067]
+stream = ExtResource("4_lc1k7")
+volume_db = 10.0

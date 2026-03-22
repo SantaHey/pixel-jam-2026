@@ -2,7 +2,7 @@ extends Sprite2D
 
 class_name Key_button
 
-@export var id_name = "q"
+@export var id_name:String = "q"
 
 var t_up
 var t_down
@@ -31,12 +31,19 @@ func load_textures():
 func _process(delta: float) -> void:
 	if last != pressed and pressed:
 		_create_particles()
+		var pitcher = randf_range(-0.3, 0.3)
+		$AudioStreamPlayer.pitch_scale = 1-pitcher
+		$AudioStreamPlayer.play()
 	
 	last = pressed
 	
 	queue_redraw()
 	
-	$Multiplicator.text = "X " + str(multiplicator)
+	$Multiplicator.text = "X " + str(int(multiplicator))
+	if multiplicator == 0:
+		$Multiplicator.add_theme_color_override("default_color", Color(0.886, 0.671, 0.729, 1.0))
+	else:
+		$Multiplicator.add_theme_color_override("default_color", Color(1, 1, 1, 1))
 	
 func _create_particles() -> void:
 	chaos_percent = 1 if chaos_percent > 1 else chaos_percent
@@ -54,8 +61,10 @@ func _create_particles() -> void:
 func _draw() -> void:
 	var t_to_draw = t_down if pressed else t_up
 	if unlocked:
+		$Multiplicator.visible = true
 		$ColorRect.visible = false
 		draw_texture(t_to_draw, Vector2(0,0), Color(1,1,1,1))
 	else:
+		$Multiplicator.visible = false
 		$ColorRect.visible = true
 		draw_texture(t_down, Vector2(0,0), Color(0.886, 0.671, 0.729, 1.0))

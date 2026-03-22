@@ -15,7 +15,7 @@ var j2_current_presses = 0
 
 func _ready() -> void:
 	#Tools.showdebugtext("children", str(get_children()))
-	$EventTriggerTimer.wait_time = 2
+	$EventTriggerTimer.wait_time = 20
 	$EventDurationTimer.wait_time = 7
 
 func _on_event_trigger_timer_timeout() -> void:

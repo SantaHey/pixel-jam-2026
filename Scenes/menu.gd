@@ -26,7 +26,8 @@ func _unhandled_input(event):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimationPlayer.play("new_animation")
-	AutoLoadScenes.get_node("AudioStreamPlayer").playing = true
+	$Delay.start()
+	$Delay.one_shot = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,3 +39,7 @@ func _process(delta: float) -> void:
 			$RichTextLabel.show()
 		2:
 			get_tree().quit()
+
+
+func _on_music_delay_timeout() -> void:
+	$AudioStreamPlayer2D.playing = true

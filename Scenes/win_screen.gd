@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
+	$AudioStreamPlayer2D.playing = true
 	if Global.winner == 1:
 		$J1.show()
 		# WINNER : J1\nGlobal.score_j1

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bka0ogx3t1miv" path="res://Scenes/PalierDroite.tscn" id="6_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://wd2n67ypj1q7" path="res://Scenes/events.tscn" id="6_v158k"]
 [ext_resource type="PackedScene" uid="uid://dqn18vcfeca7h" path="res://Scenes/PalierGauche.tscn" id="7_v158k"]
+[ext_resource type="AudioStream" uid="uid://s43lyxo1w7qs" path="res://Audios/Combat Music Loop.ogg" id="8_v158k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7id1"]
 bg_color = Color(1, 1, 1, 1)
@@ -379,6 +380,9 @@ theme_override_font_sizes/normal_font_size = 100
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=1272170465]
+stream = ExtResource("8_v158k")
 
 [connection signal="power_chosen" from="FloorPowers" to="." method="_on_floor_powers_power_chosen"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

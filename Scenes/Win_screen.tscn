@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://df6wyyw83slql" path="res://sprite/win_screen/j1_win.png" id="1_ge0e0"]
 [ext_resource type="Texture2D" uid="uid://cwowwp3xg5pdy" path="res://sprite/win_screen/j2_win.png" id="2_q7hpg"]
 [ext_resource type="FontFile" uid="uid://cbqljjgmopg8o" path="res://fonts/HOMEMADE 2.ttf" id="4_e3gb4"]
+[ext_resource type="AudioStream" uid="uid://bjxosx2dtumxr" path="res://Audios/Victory Music.mp3" id="5_uch4g"]
 
 [node name="WinScreen" type="Node2D" unique_id=898069156]
 script = ExtResource("1_3fjhh")
@@ -127,3 +128,6 @@ text = "R TO RESTART"
 fit_content = true
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=1716519948]
+stream = ExtResource("5_uch4g")

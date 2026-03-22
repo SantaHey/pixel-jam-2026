@@ -1,6 +1,6 @@
 extends Node2D
 
-var score_high = 1000.0
+var score_high = 20000.0
 
 var last_tier_j1 = 0
 var last_tier_j2 = 0
@@ -8,6 +8,7 @@ var last_tier_j2 = 0
 func _on_countdown_timeout() -> void:
 	$GameTimer.start()
 	$CountdownUI.hide()
+	$AudioStreamPlayer2D.playing = true
 	
 	# Start event timer
 	$EventManager/EventTriggerTimer.start()

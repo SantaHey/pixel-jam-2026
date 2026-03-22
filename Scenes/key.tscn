@@ -59,4 +59,4 @@ offset_bottom = 15.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=78973067]
 stream = ExtResource("4_lc1k7")
-volume_db = 10.0
+volume_db = 15.0

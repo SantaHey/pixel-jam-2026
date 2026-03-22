@@ -41,7 +41,9 @@ func start_new_event():
 	is_event_active = true
 	
 	print("Le joueur 1 doit appuyer ", event_target_presses, " fois sur la touche ", j1_event_target_key_string)
+	Tools.showdebugtext("event_j1", "J1 doit appuyer " + str(event_target_presses) + " fois sur la touche " + j1_event_target_key_string)
 	print("Le joueur 2 doit appuyer ", event_target_presses, " fois sur la touche ", j2_event_target_key_string)
+	Tools.showdebugtext("event_j2", "J2 doit appuyer " + str(event_target_presses) + " fois sur la touche " + j2_event_target_key_string)
 	print("La récompense est un ", event_reward_type)
 
 func generate_event():
@@ -126,12 +128,14 @@ func win_event(player_id):
 	if event_reward_type == "bonus":
 		trigger_event("bonus", player_id, event_reward_power)
 		print("Le joueur ", player_id, " voit ", event_reward_power, " de ses touches améliorées")
+		Tools.showdebugtext("event_j"+str(player_id), "J" + str(player_id) + " a gagné un bonus ! : " + str(event_reward_power) + "x multiplicator sur " + str(event_reward_power) + " touches")
 	else:
 		var loser_id = 1
 		if player_id == 1:
 			loser_id = 2
 		trigger_event("malus", loser_id, event_reward_power)
 		print("Le joueur ", loser_id, " subit un malus sur ", event_reward_power, " touches")
+		Tools.showdebugtext("event_j"+str(player_id), "J" + str(player_id) + " a gagné un bonus ! : " + str(event_reward_power) + "x multiplicator sur " + str(event_reward_power) + " touches")
 
 
 var events = {
@@ -157,6 +161,7 @@ func trigger_event(event_name, id,n):
 		var bonus_value = events[event_name]["value"]
 		for k in selected_keys:
 			Global.keys_state[k].multiplicator *= bonus_value
+			Global.keys_state[k].event = "noevent"
 	
 	# MALUS EVENT
 	if event_name == "malus":
@@ -170,6 +175,8 @@ func trigger_event(event_name, id,n):
 		for k in selected_keys:
 			previous_values.append(Global.keys_state[k].multiplicator)
 			Global.keys_state[k].multiplicator *= malus_value
+			Global.keys_state[k].event = "noevent"
+
 		events[event_name].set("previous_values", previous_values)
 
 	# ON START L'EVENEMENT
@@ -191,7 +198,8 @@ func _process(delta: float) -> void:
 	if $EventDurationTimer.is_stopped() == false:
 		Tools.showdebugtext("event_timer", str(round($EventDurationTimer.time_left)) + "s")
 	
-	Tools.showdebugtext("state", events["malus"])
+	Tools.showdebugtext("power_malus", events["malus"])
+	Tools.showdebugtext("power_bonus", events["bonus"])
 
 # CANCEL REWARD
 func _on_event_duration_timer_timeout() -> void:
@@ -203,6 +211,10 @@ func _on_event_duration_timer_timeout() -> void:
 		# si l'event est en cours
 		var bonus_value = events[event_name]["value"]
 		Global.keys_state[key_button].multiplicator /= bonus_value
+		# set to normal
+		Global.keys_state[key_button].event = "noevent"
+		# reset keys
+		events[event_name].set("keys", [])
 	
 	# FOR MALUS
 	event_name = "malus"
@@ -212,6 +224,10 @@ func _on_event_duration_timer_timeout() -> void:
 		# RESTORE PREVIOUS VALUE
 		var previous_value = events[event_name]["previous_values"].pop_front()
 		Global.keys_state[key_button].multiplicator = previous_value
+		# set to noevent
+		Global.keys_state[key_button].event = "noevent"
+		# reset keys
+		events[event_name].set("keys", [])
 
 	# ON RESTART L'EVENEMENT
 	$EventTriggerTimer.start()

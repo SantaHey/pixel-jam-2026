@@ -141,3 +141,31 @@ func _on_game_timer_timeout() -> void:
 		else:
 			Global.winner = 2
 			get_tree().change_scene_to_file("res://Scenes/Win_screen.tscn")
+
+func _on_event_manager_new_event() -> void:
+	# blink 3 times
+	var count_blink = 10
+	var delay = 0.1
+	$AudioChallenge.playing = true
+	
+	# 	# J1: 
+	# 	# violet 168 144 192
+	# 	# vert 152 199 191 
+	# 	# J2:
+	# 	# jaune 247 241 159
+	# 	# rose 226 171 186
+	# 	# commun:
+	# 	# bleu 140 198 230
+	for i in range(count_blink):
+
+		$UI/Quest_j1.add_theme_color_override("default_color", Color(0.0, 0.0, 0.0, 1.0))
+		$UI/Quest_j2.add_theme_color_override("default_color", Color(0.0, 0.0, 0.0, 1.0))
+		
+		# wait
+		await get_tree().create_timer(delay).timeout
+		$UI/Quest_j1.add_theme_color_override("default_color", Color(1.0, 1.0, 1.0, 1.0))
+		$UI/Quest_j2.add_theme_color_override("default_color", Color(1.0, 1.0, 1.0, 1.0))
+		
+		
+		# wait
+		await get_tree().create_timer(delay).timeout

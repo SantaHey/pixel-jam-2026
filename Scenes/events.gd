@@ -1,5 +1,7 @@
 extends Node
 
+signal new_event
+
 var is_event_active = false
 var j1_event_target_key_string : String = ""
 var j2_event_target_key_string : String = ""
@@ -13,7 +15,7 @@ var j2_current_presses = 0
 
 func _ready() -> void:
 	#Tools.showdebugtext("children", str(get_children()))
-	$EventTriggerTimer.wait_time = 30
+	$EventTriggerTimer.wait_time = 2
 	$EventDurationTimer.wait_time = 7
 
 func _on_event_trigger_timer_timeout() -> void:
@@ -49,6 +51,8 @@ func start_new_event():
 
 	Global.text_j1 = displayed_text_j1
 	Global.text_j2 = displayed_text_j2
+	
+	new_event.emit()
 
 func generate_event():
 	$EventTriggerTimer.stop()
@@ -90,6 +94,13 @@ func process_player_input(pressed_key: String):
 
 	# On passe la touche en minuscule pour correspondre à ton dictionnaire ("Q" devient "q")
 	var lower_key = pressed_key.to_lower()
+	
+	if lower_key == "comma":
+		lower_key = ","
+	if lower_key == "period":
+		lower_key = "point"
+	if lower_key == "minus":
+		lower_key = "-"
 	
 	# 1. On vérifie si la touche fait partie du jeu
 	if not Global.keys_state.has(lower_key):

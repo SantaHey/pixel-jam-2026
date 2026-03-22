@@ -35,7 +35,7 @@ func init():
 	score_j1 = 0.0
 	score_j2 = 0.0
 
-	timer = 180
+	timer = 150
 
 	winner = 0
 

@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://bntk7mvrnnrfp"]
 
 [ext_resource type="Script" uid="uid://bhwr8iq87byst" path="res://Labs/alex.gd" id="1_0dtjm"]
+[ext_resource type="PackedScene" uid="uid://wd2n67ypj1q7" path="res://Scenes/events.tscn" id="2_41yv5"]
 
 [node name="Alex" type="Node2D" unique_id=1560869332]
+position = Vector2(0, -4)
 script = ExtResource("1_0dtjm")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=890319554]
-offset_right = 1022.0
-offset_bottom = 623.0
+offset_left = -1.0
+offset_right = 1012.0
+offset_bottom = 613.0
 
-[node name="Timer" type="Timer" parent="." unique_id=2003841580]
-autostart = true
+[node name="Node" parent="." unique_id=1455737448 instance=ExtResource("2_41yv5")]

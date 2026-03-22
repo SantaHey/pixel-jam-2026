@@ -299,6 +299,9 @@ var powers_state = {
 	}
 }
 
+var text_j1 = "..."
+var text_j2 = "..."
+
 var current_floor_j1 = 0
 var current_floor_j2 = 0
 

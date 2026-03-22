@@ -42,7 +42,7 @@ func _create_particles() -> void:
 	chaos_percent = 1 if chaos_percent > 1 else chaos_percent
 	var truc:ParticleProcessMaterial = $GPUParticles2D.process_material.duplicate()
 	truc.angular_velocity_max = par_rotate * chaos_percent
-	truc.scale_max = par_scale * chaos_percent + 1
+	truc.scale_max = par_scale * chaos_percent + 0.1
 	truc.scale_min = truc.scale_max
 	$GPUParticles2D.process_material = truc
 	$GPUParticles2D.scale = Vector2(par_speed * chaos_percent + 0.1, par_speed * chaos_percent + 0.1)

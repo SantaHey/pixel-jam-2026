@@ -365,9 +365,25 @@ func init():
 		},
 		5: {
 			"base_value" : 8100.0,
-			"reach_value" : 24300.0,
+			"reach_value" : 10000.0,
 		},
 		6 : {
+			"base_value" : 10000.0,
+			"reach_value" : 15000.0,
+		},
+		7 : {
+			"base_value" : 15000.0,
+			"reach_value" : 20000.0,
+		},
+		8 : {
+			"base_value" : 20000.0,
+			"reach_value" : 25000.0,
+		},
+		9 : {
+			"base_value" : 25000.0,
+			"reach_value" : INF,
+		},
+		10 : {
 			"base_value" : 24300.0,
 			"reach_value" : INF,
 		},

@@ -1,6 +1,6 @@
 extends Node2D
 
-var score_high = 20000.0
+var score_high = 13000.0
 
 var last_tier_j1 = 0
 var last_tier_j2 = 0

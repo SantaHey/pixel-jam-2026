@@ -117,15 +117,15 @@ func process_player_input(pressed_key: String):
 	if player_id == 1:
 		if lower_key == j1_event_target_key_string:
 			j1_current_presses += 1
-			# print("J1 OK . Progression : ", j1_current_presses, "/", event_target_presses)
-			# Tools.showdebugtext("event_j1", "Progression J1 : " + str(j1_current_presses) + "/" + str(event_target_presses))
+			# print("J1 OK . Progression : ", j1_current_presses, " on ", event_target_presses)
+			# Tools.showdebugtext("event_j1", "Progression J1 : " + str(j1_current_presses) + " on " + str(event_target_presses))
 
 			# WIN CONDITION
 			if j1_current_presses >= event_target_presses:
 				win_event(1)
 			else:
 				# DISPLAY TEXT
-				displayed_text_j1 = "Press only " + j1_event_target_key_string + " : " + str(j1_current_presses) + "/" + str(event_target_presses)
+				displayed_text_j1 = "Press only " + j1_event_target_key_string + " : " + str(j1_current_presses) + " on " + str(event_target_presses)
 		else:
 			j1_current_presses = 0
 			# print("Erreur J1 . Le compteur retombe à 0.")
@@ -139,15 +139,15 @@ func process_player_input(pressed_key: String):
 	elif player_id == 2:
 		if lower_key == j2_event_target_key_string:
 			j2_current_presses += 1
-			# print("J2 OK . Progression : ", j2_current_presses, "/", event_target_presses)
-			# Tools.showdebugtext("event_j2", "Progression J2 : " + str(j2_current_presses) + "/" + str(event_target_presses))
+			# print("J2 OK . Progression : ", j2_current_presses, " on ", event_target_presses)
+			# Tools.showdebugtext("event_j2", "Progression J2 : " + str(j2_current_presses) + " on " + str(event_target_presses))
 
 			# WIN CONDITION
 			if j2_current_presses >= event_target_presses:
 				win_event(2)
 			else:
 				# DISPLAY TEXT
-				displayed_text_j2 = "Press only " + j2_event_target_key_string + " : " + str(j2_current_presses) + "/" + str(event_target_presses)
+				displayed_text_j2 = "Press only " + j2_event_target_key_string + " : " + str(j2_current_presses) + " on " + str(event_target_presses)
 		else:
 			# Tools.showdebugtext("j2_current_presses", j2_current_presses)
 			j2_current_presses = 0

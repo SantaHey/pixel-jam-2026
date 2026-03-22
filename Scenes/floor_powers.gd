@@ -1,18 +1,25 @@
 extends Node
+signal power_chosen
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("1") and Global.powers_available:
+	if Input.is_action_just_pressed("1") and Global.powers_available_j1:
 		unlock_keys(1)
-	if Input.is_action_just_pressed("2") and Global.powers_available:
+		power_chosen.emit(1)
+	if Input.is_action_just_pressed("2") and Global.powers_available_j1:
 		boost_keys(1)
-	if Input.is_action_just_pressed("3") and Global.powers_available:
+		power_chosen.emit(1)
+	if Input.is_action_just_pressed("3") and Global.powers_available_j1:
 		boost_all_keys(1)
-	if Input.is_action_just_pressed("6") and Global.powers_available:
+		power_chosen.emit(1)
+	if Input.is_action_just_pressed("6") and Global.powers_available_j2:
 		unlock_keys(2)
-	if Input.is_action_just_pressed("7") and Global.powers_available:
+		power_chosen.emit(2)
+	if Input.is_action_just_pressed("7") and Global.powers_available_j2:
 		boost_keys(2)
-	if Input.is_action_just_pressed("8") and Global.powers_available:
+		power_chosen.emit(2)
+	if Input.is_action_just_pressed("8") and Global.powers_available_j2:
 		boost_all_keys(2)
+		power_chosen.emit(2)
 
 func get_player_keys(player_num) -> Array:
 	var hmap_keys = Global.keys_state.keys()

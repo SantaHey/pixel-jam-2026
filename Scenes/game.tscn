@@ -7,12 +7,16 @@
 [ext_resource type="Script" uid="uid://dkyfjhu3xyg4m" path="res://Scenes/score_manager.gd" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bka0ogx3t1miv" path="res://Scenes/PalierDroite.tscn" id="6_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://dqn18vcfeca7h" path="res://Scenes/PalierGauche.tscn" id="7_v158k"]
+[ext_resource type="AudioStream" uid="uid://s43lyxo1w7qs" path="res://Audios/Combat Music Loop.ogg" id="8_v158k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7id1"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1l0tm"]
+bg_color = Color(0.65882355, 0.5647059, 0.7529412, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbgld"]
-bg_color = Color(0.8862745, 0.67058825, 0.7294118, 1)
+bg_color = Color(0.96862745, 0.94509804, 0.62352943, 1)
 
 [node name="Game" type="Node2D" unique_id=1003941559]
 script = ExtResource("1_wrm1d")
@@ -173,7 +177,7 @@ offset_top = 40.0
 offset_right = 112.0
 offset_bottom = 47.0
 theme_override_styles/background = SubResource("StyleBoxFlat_h7id1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_fbgld")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1l0tm")
 show_percentage = false
 
 [node name="ProgressBar_j2" type="ProgressBar" parent="UI" unique_id=993566042]
@@ -340,3 +344,8 @@ scale = Vector2(0.42, 0.42)
 
 [node name="PalierGauche" parent="." unique_id=583617968 instance=ExtResource("7_v158k")]
 scale = Vector2(0.42, 0.42)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=894107278]
+stream = ExtResource("8_v158k")
+
+[connection signal="power_chosen" from="FloorPowers" to="." method="_on_floor_powers_power_chosen"]

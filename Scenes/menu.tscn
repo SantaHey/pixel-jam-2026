@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dvvlhbyksch2t"]
+
+[node name="Menu" type="Node2D" unique_id=51058493]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=718804855]
+offset_right = 304.0
+offset_bottom = 175.0

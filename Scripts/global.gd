@@ -337,7 +337,8 @@ var keys_state = {
 	},
 }
 
-var powers_available = true
+var powers_available_j1 = false
+var powers_available_j2 = false
 
 var powers_state = {
 	"1" : {

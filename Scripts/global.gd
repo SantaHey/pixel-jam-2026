@@ -35,7 +35,7 @@ func init():
 	score_j1 = 0.0
 	score_j2 = 0.0
 
-	timer = 5
+	timer = 180
 
 	winner = 0
 
@@ -349,10 +349,26 @@ func init():
 		},
 		1 : {
 			"base_value" : 100.0,
-			"reach_value" : 200.0,
+			"reach_value" : 300.0,
 		},
 		2 : {
-			"base_value" : 200.0,
+			"base_value" : 300.0,
+			"reach_value" : 900.,
+		},
+		3 : {
+			"base_value" : 900.0,
+			"reach_value" : 2700.0,
+		},
+		4 : {
+			"base_value" : 2700.0,
+			"reach_value" : 8100,
+		},
+		5: {
+			"base_value" : 8100.0,
+			"reach_value" : 24300.0,
+		},
+		6 : {
+			"base_value" : 24300.0,
 			"reach_value" : INF,
 		},
 	}

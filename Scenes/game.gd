@@ -22,13 +22,17 @@ func _on_countdown_timeout() -> void:
 		return Global.keys_state[id_name].player == 2
 	)
 
-	# one random_key_j1
-	var random_key_j1 = all_keys_j1[randi() % all_keys_j1.size()]
-	Global.keys_state.get(random_key_j1).set("state", true)
+	# two random_key_j1
+	var random_two_keys_j1 = all_keys_j1.duplicate()
+	random_two_keys_j1.shuffle()
+	Global.keys_state.get(random_two_keys_j1[0]).set("state", true)
+	Global.keys_state.get(random_two_keys_j1[1]).set("state", true)
 
-	# one random_key_j2
-	var random_key_j2 = all_keys_j2[randi() % all_keys_j2.size()]
-	Global.keys_state.get(random_key_j2).set("state", true)
+	# two random_key_j2
+	var random_two_keys_j2 = all_keys_j2.duplicate()
+	random_two_keys_j2.shuffle()
+	Global.keys_state.get(random_two_keys_j2[0]).set("state", true)
+	Global.keys_state.get(random_two_keys_j2[1]).set("state", true)
 
 
 func _ready() -> void:

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cfxeqvgiy4lwy"]
 
 [ext_resource type="Texture2D" uid="uid://co8kv0qato81y" path="res://sprite/sprite_sheet_menu.png" id="1_1rerr"]
-[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_xhh6f"]
+[ext_resource type="Script" uid="uid://byd3ilwoeiyw" path="res://Scenes/menu.gd" id="1_xhh6f"]
 [ext_resource type="FontFile" uid="uid://cbqljjgmopg8o" path="res://fonts/HOMEMADE 2.ttf" id="3_cayip"]
 
 [sub_resource type="Animation" id="Animation_1rerr"]

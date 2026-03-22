@@ -13,7 +13,8 @@ var j2_current_presses = 0
 
 func _ready() -> void:
 	#Tools.showdebugtext("children", str(get_children()))
-	$EventTriggerTimer.wait_time = 1
+	$EventTriggerTimer.wait_time = 30
+	$EventDurationTimer.wait_time = 7
 
 func _on_event_trigger_timer_timeout() -> void:
 	start_new_event()
@@ -51,7 +52,7 @@ func start_new_event():
 
 func generate_event():
 	$EventTriggerTimer.stop()
-	var nb_pressed = randi_range(5,15)
+	var nb_pressed = randi_range(10, 20)
 	var keys = get_random_keys()
 	#print(nb_pressed)
 	#print(keys)

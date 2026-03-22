@@ -2,8 +2,8 @@ extends Node
 signal power_chosen
 
 const UNLOCK_RANDOM_KEYS_COUNT = 2
-const BOOST_RANDOM_KEYS_VALUE = 10
-const BOOST_RANDOM_KEYS_COUNT = 1
+const BOOST_RANDOM_KEYS_VALUE = 6
+const BOOST_RANDOM_KEYS_COUNT = 3
 const BOOST_ALL_KEYS_VALUE = 2
 
 func _process(_delta: float) -> void:

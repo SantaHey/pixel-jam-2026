@@ -103,10 +103,10 @@ texture = ExtResource("1_faxgj")
 [node name="RichTextLabel" type="RichTextLabel" parent="PalierDroite" unique_id=1528585789]
 offset_left = 389.0
 offset_top = 63.0
-offset_right = 460.0
+offset_right = 589.0
 offset_bottom = 86.0
 theme_override_fonts/normal_font = ExtResource("2_yrm3b")
-text = "+1 KEY"
+text = "UNLOCK 2 KEYS"
 
 [node name="Sprite2D2" type="Sprite2D" parent="PalierDroite" unique_id=625172433]
 position = Vector2(377, 92)
@@ -118,7 +118,7 @@ offset_top = 86.0
 offset_right = 684.0
 offset_bottom = 109.0
 theme_override_fonts/normal_font = ExtResource("2_yrm3b")
-text = "+10 SCORE FOR A RANDOM KEY"
+text = "BOOST 3 KEYS BY 6"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="PalierDroite" unique_id=1194868338]
 offset_left = 389.0
@@ -126,7 +126,7 @@ offset_top = 108.0
 offset_right = 629.0
 offset_bottom = 131.0
 theme_override_fonts/normal_font = ExtResource("2_yrm3b")
-text = "+2 SCORE ON ALL KEYS"
+text = "BOOST ALL KEYS BY 2"
 
 [node name="Sprite2D3" type="Sprite2D" parent="PalierDroite" unique_id=1466846559]
 position = Vector2(377, 114)

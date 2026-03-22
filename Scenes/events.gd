@@ -31,12 +31,8 @@ func start_new_event():
 	
 	var event_data = generate_event()
 	event_target_presses = event_data[0]
-	var target_vector = event_data[1]
-	for k in Global.keys_state :
-		if Global.keys_state[k].player==1 and Global.keys_state[k].line==int(target_vector[0]) and Global.keys_state[k].col==int(target_vector[1]) :
-			j1_event_target_key_string=k
-		if Global.keys_state[k].player==2 and Global.keys_state[k].line==int(target_vector[0]) and Global.keys_state[k].col==int(target_vector[1]) :
-			j2_event_target_key_string=k
+	j1_event_target_key_string = event_data[1][0]
+	j2_event_target_key_string = event_data[1][1]
 	is_event_active = true
 	
 	#print("Le joueur 1 doit appuyer ", event_target_presses, " fois sur la touche ", j1_event_target_key_string)
@@ -48,26 +44,20 @@ func start_new_event():
 func generate_event():
 	$EventTriggerTimer.stop()
 	var nb_pressed = randi_range(5,15)
-	var index_key = get_common_keys()
+	var keys = get_random_keys()
 	#print(nb_pressed)
 	#print(index_key)
-	return [nb_pressed,index_key]
+	return [nb_pressed,keys]
 
-func get_common_keys():
-	var common_key = []
-	var l1 = transform_key_pos(get_available_key(1))
-	var l2 = transform_key_pos(get_available_key(2))
-	for l in l1:
-		for m in l2:
-			if l == m:
-				common_key.append(l)
-	return common_key[randi_range(0,len(common_key)-1)]
-
-func transform_key_pos(list) :
-	var l = []
-	for k in list:
-		l.append(Vector2(Global.keys_state[k]["line"],Global.keys_state[k]["col"]))
-	return l
+func get_random_keys():
+	var l1 = get_available_key(1)
+	var l2 = get_available_key(2)
+	l1.shuffle()
+	l2.shuffle()
+	#Get the first key of the list (previously shuffle)
+	var j1k = l1.pop_front()
+	var j2k = l2.pop_front()
+	return [j1_event_target_key_string, j2_event_target_key_string]
 
 func get_available_key(id):
 	var available_key = []
@@ -107,7 +97,7 @@ func process_player_input(pressed_key: String):
 			# Tools.showdebugtext("event_j1", "Progression J1 : " + str(j1_current_presses) + "/" + str(event_target_presses))
 
 			# DISPLAY TEXT
-			displayed_text_j1 = "Press only " + j1_event_target_key_string.upper() + " : " + str(j1_current_presses) + "/" + str(event_target_presses)
+			displayed_text_j1 = "Press only " + j1_event_target_key_string + " : " + str(j1_current_presses) + "/" + str(event_target_presses)
 
 			# WIN CONDITION
 			if j1_current_presses >= event_target_presses:
@@ -120,7 +110,7 @@ func process_player_input(pressed_key: String):
 				
 				# DISPLAY TEXT
 				# Text ERROR ! Press only B 10 times in a row
-				displayed_text_j1 = "ERROR ! Press only " + j1_event_target_key_string.upper() + " " + event_target_presses + " times in a row."
+				displayed_text_j1 = "ERROR ! Press only " + j1_event_target_key_string + " " + str(event_target_presses) + " times in a row."
 				
 	# 4. Logique pour le JOUEUR 2
 	elif player_id == 2:
@@ -130,7 +120,7 @@ func process_player_input(pressed_key: String):
 			# Tools.showdebugtext("event_j2", "Progression J2 : " + str(j2_current_presses) + "/" + str(event_target_presses))
 
 			# DISPLAY TEXT
-			displayed_text_j2 = "Press only " + j2_event_target_key_string.upper + " : " + str(j2_current_presses) + "/" + str(event_target_presses)
+			displayed_text_j2 = "Press only " + j2_event_target_key_string + " : " + str(j2_current_presses) + "/" + str(event_target_presses)
 
 			# WIN CONDITION
 			if j2_current_presses >= event_target_presses:
@@ -142,7 +132,7 @@ func process_player_input(pressed_key: String):
 				# Tools.showdebugtext("event_j2", "Erreur J2 ! Progression retombe à 0.")
 				
 				# DISPLAY TEXT
-				displayed_text_j2 = "ERROR ! Press only " + j2_event_target_key_string.upper() + " " + event_target_presses + " times in a row."
+				displayed_text_j2 = "ERROR ! Press only " + j2_event_target_key_string + " " + str(event_target_presses) + " times in a row."
 
 	# DISPLAY TEXT
 	Global.text_j1 = displayed_text_j1
@@ -273,8 +263,7 @@ func _on_event_duration_timer_timeout() -> void:
 		events[event_name].set("keys", [])
 		
 		# DISPLAYED TEXT
-		
-	
+
 	# FOR MALUS
 	event_name = "malus"
 	for key_button in events[event_name]["keys"]:

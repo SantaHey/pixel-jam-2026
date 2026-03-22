@@ -48,6 +48,8 @@ func update_screen() -> void:
 
 func _process(delta: float) -> void:
 	Tools.showdebugtext("fps", Engine.get_frames_per_second())
+	Tools.showdebugtext("text_j1", Global.text_j1)
+	Tools.showdebugtext("text_j2", Global.text_j2)
 	update_screen()
 
 
@@ -55,3 +57,9 @@ func _process(delta: float) -> void:
 func _on_game_timer_timeout() -> void:
 	Global.timer-=1
 	print(Global.timer)
+	if Global.timer <= 0 :
+		$GameTimer.stop()
+		if Global.score_j1 >= Global.score_j2 :
+			get_tree().change_scene_to_file("res://Scenes/Win_screen_1.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Scenes/Win_screen_2.tscn")

@@ -12,7 +12,6 @@ var j1_current_presses = 0
 var j2_current_presses = 0
 
 func _ready() -> void:
-	print("fdsdjf")
 	#Tools.showdebugtext("children", str(get_children()))
 	$EventTriggerTimer.wait_time = 1
 
@@ -40,18 +39,18 @@ func start_new_event():
 			j2_event_target_key_string=k
 	is_event_active = true
 	
-	print("Le joueur 1 doit appuyer ", event_target_presses, " fois sur la touche ", j1_event_target_key_string)
+	#print("Le joueur 1 doit appuyer ", event_target_presses, " fois sur la touche ", j1_event_target_key_string)
 	Tools.showdebugtext("event_j1", "J1 doit appuyer " + str(event_target_presses) + " fois sur la touche " + j1_event_target_key_string)
-	print("Le joueur 2 doit appuyer ", event_target_presses, " fois sur la touche ", j2_event_target_key_string)
+	#print("Le joueur 2 doit appuyer ", event_target_presses, " fois sur la touche ", j2_event_target_key_string)
 	Tools.showdebugtext("event_j2", "J2 doit appuyer " + str(event_target_presses) + " fois sur la touche " + j2_event_target_key_string)
-	print("La récompense est un ", event_reward_type)
+	#print("La récompense est un ", event_reward_type)
 
 func generate_event():
 	$EventTriggerTimer.stop()
 	var nb_pressed = randi_range(5,15)
 	var index_key = get_common_keys()
-	print(nb_pressed)
-	print(index_key)
+	#print(nb_pressed)
+	#print(index_key)
 	return [nb_pressed,index_key]
 
 func get_common_keys():
@@ -100,42 +99,45 @@ func process_player_input(pressed_key: String):
 	if player_id == 1:
 		if lower_key == j1_event_target_key_string:
 			j1_current_presses += 1
-			print("J1 OK ! Progression : ", j1_current_presses, "/", event_target_presses)
+			# print("J1 OK ! Progression : ", j1_current_presses, "/", event_target_presses)
+			Tools.showdebugtext("event_j1", "Progression J1 : " + str(j1_current_presses) + "/" + str(event_target_presses))
 			if j1_current_presses >= event_target_presses:
 				win_event(1)
 		else:
 			if j1_current_presses > 0:
 				j1_current_presses = 0
-				print("Erreur J1 ! Le compteur retombe à 0.")
+				# print("Erreur J1 ! Le compteur retombe à 0.")
+				Tools.showdebugtext("event_j1", "Erreur J1 ! Progression retombe à 0.")
 				
 	# 4. Logique pour le JOUEUR 2
 	elif player_id == 2:
 		if lower_key == j2_event_target_key_string:
 			j2_current_presses += 1
-			print("J2 OK ! Progression : ", j2_current_presses, "/", event_target_presses)
+			# print("J2 OK ! Progression : ", j2_current_presses, "/", event_target_presses)
+			Tools.showdebugtext("event_j2", "Progression J2 : " + str(j2_current_presses) + "/" + str(event_target_presses))
 			if j2_current_presses >= event_target_presses:
 				win_event(2)
 		else:
 			if j2_current_presses > 0:
 				j2_current_presses = 0
-				print("Erreur J2 ! Le compteur retombe à 0.")
+				# print("Erreur J2 ! Le compteur retombe à 0.")
+				Tools.showdebugtext("event_j2", "Erreur J2 ! Progression retombe à 0.")
 
 # EVENT REWARD
 func win_event(player_id):
-	print("🏆 Le Joueur ", player_id, " a terminé l'event en premier !")
+	# print("🏆 Le Joueur ", player_id, " a terminé l'event en premier !")
+
 	is_event_active = false
 	
 	if event_reward_type == "bonus":
+		# print("Le joueur ", player_id, " voit ", event_reward_power, " de ses touches améliorées")
 		trigger_event("bonus", player_id, event_reward_power)
-		print("Le joueur ", player_id, " voit ", event_reward_power, " de ses touches améliorées")
-		Tools.showdebugtext("event_j"+str(player_id), "J" + str(player_id) + " a gagné un bonus ! : " + str(event_reward_power) + "x multiplicator sur " + str(event_reward_power) + " touches")
 	else:
 		var loser_id = 1
 		if player_id == 1:
 			loser_id = 2
 		trigger_event("malus", loser_id, event_reward_power)
-		print("Le joueur ", loser_id, " subit un malus sur ", event_reward_power, " touches")
-		Tools.showdebugtext("event_j"+str(player_id), "J" + str(player_id) + " a gagné un bonus ! : " + str(event_reward_power) + "x multiplicator sur " + str(event_reward_power) + " touches")
+		# print("Le joueur ", loser_id, " subit un malus sur ", event_reward_power, " touches")
 
 
 var events = {
@@ -151,23 +153,34 @@ var events = {
 }
 
 func trigger_event(event_name, id,n):
+	var displayed_text_winner = ""
+	var displayed_text_loser = ""
+
 	# BONUS EVENT
 	if event_name == "bonus":
-		print("trigger bonus for player ", id)
+		# print("trigger bonus for player ", id)
 		var selected_keys = select_random_key(id,n)
-		print(selected_keys)
+		# print(selected_keys)
 		events["bonus"].set("keys", selected_keys)
 		
 		var bonus_value = events[event_name]["value"]
 		for k in selected_keys:
 			Global.keys_state[k].multiplicator *= bonus_value
 			Global.keys_state[k].event = "noevent"
+
+		# DISPLAYED TEXT
+		displayed_text_winner += "Event won : "
+		for hmap_key in selected_keys:
+			displayed_text_winner += hmap_key + " "
+		displayed_text_winner += "boosted by " + str(bonus_value) + " for " + str(round($EventDurationTimer.wait_time)) + "s!"
+
+		displayed_text_loser += "Event lost, you missed the bonus..."
 	
 	# MALUS EVENT
 	if event_name == "malus":
-		print("trigger malus for player ", id)
+		# print("trigger malus for player ", id)
 		var selected_keys = select_random_key(id,n)
-		print(selected_keys)
+		# print(selected_keys)
 		events[event_name].set("keys", selected_keys)
 		
 		var malus_value = events[event_name]["value"]
@@ -178,6 +191,24 @@ func trigger_event(event_name, id,n):
 			Global.keys_state[k].event = "noevent"
 
 		events[event_name].set("previous_values", previous_values)
+
+		# DISPLAYED TEXT
+		displayed_text_loser += "Event lost : "
+		for hmap_key in selected_keys:
+			displayed_text_loser += hmap_key + " "
+		displayed_text_loser += "malused by " + str(malus_value) + " for " + str(round($EventDurationTimer.wait_time)) + "s!"
+
+		displayed_text_winner += "Event won, you avoided the malus !"
+
+	# DISPLAY TEXT
+	if id == 1:
+		# player1 won
+		Global.text_j1 = displayed_text_winner
+		Global.text_j2 = displayed_text_loser
+	else:
+		# player2 won
+		Global.text_j2 = displayed_text_winner
+		Global.text_j1 = displayed_text_loser
 
 	# ON START L'EVENEMENT
 	$EventDurationTimer.start()
@@ -215,6 +246,9 @@ func _on_event_duration_timer_timeout() -> void:
 		Global.keys_state[key_button].event = "noevent"
 		# reset keys
 		events[event_name].set("keys", [])
+		
+		# DISPLAYED TEXT
+		
 	
 	# FOR MALUS
 	event_name = "malus"

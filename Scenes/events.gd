@@ -43,8 +43,8 @@ func start_new_event():
 	#print("La récompense est un ", event_reward_type)
 
 	# challenge text
-	var displayed_text_j1 = "[CHALLENGE] Press only " + j1_event_target_key_string + " " + str(event_target_presses) + " times in a row !"
-	var displayed_text_j2 = "[CHALLENGE] Press only " + j2_event_target_key_string + " " + str(event_target_presses) + " times in a row !"
+	var displayed_text_j1 = "CHALLENGE : Press only " + j1_event_target_key_string + " " + str(event_target_presses) + " times in a row !"
+	var displayed_text_j2 = "CHALLENGE : Press only " + j2_event_target_key_string + " " + str(event_target_presses) + " times in a row !"
 
 	Global.text_j1 = displayed_text_j1
 	Global.text_j2 = displayed_text_j2

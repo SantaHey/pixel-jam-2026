@@ -3,6 +3,8 @@ extends Node
 var score_j1 = 0.0
 var score_j2 = 0.0
 
+var timer = 300
+
 var keys_state = {
 	# ── Player 1 ──────────────────────────────────────────
 	# Rangée QWERT

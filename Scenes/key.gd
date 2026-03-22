@@ -13,6 +13,12 @@ var unlocked = false
 
 var multiplicator: float = 1.0
 
+var chaos_percent:float = 0.0
+var particles:int = 30
+var par_scale:int = 1
+var par_rotate:int = 200
+var par_speed:int = 10
+
 func _ready() -> void:
 	$Placeholder.hide()
 	load_textures()
@@ -33,9 +39,17 @@ func _process(delta: float) -> void:
 	$Multiplicator.text = "X " + str(multiplicator)
 	
 func _create_particles() -> void:
-	# TODO look into particle emitter, modif with score
-	$CPUParticles2D.emitting = true
-	pass
+	chaos_percent = 1 if chaos_percent > 1 else chaos_percent
+	var truc:ParticleProcessMaterial = $GPUParticles2D.process_material.duplicate()
+	truc.angular_velocity_max = par_rotate * chaos_percent
+	truc.scale_max = par_scale * chaos_percent + 1
+	truc.scale_min = truc.scale_max
+	$GPUParticles2D.process_material = truc
+	$GPUParticles2D.scale = Vector2(par_speed * chaos_percent + 0.1, par_speed * chaos_percent + 0.1)
+	$GPUParticles2D.amount = int(particles * chaos_percent) + 1
+	var p = $GPUParticles2D.duplicate()
+	add_child(p)
+	p.restart()
 	
 func _draw() -> void:
 	var t_to_draw = t_down if pressed else t_up

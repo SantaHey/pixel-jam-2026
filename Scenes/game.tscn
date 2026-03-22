@@ -128,7 +128,7 @@ text = "AAAAA I'M QUESTING"
 layout_mode = 0
 offset_left = 5.0
 offset_top = 3.0
-offset_right = 70.0
+offset_right = 1205.0
 offset_bottom = 16.0
 theme_override_fonts/normal_font = ExtResource("1_qxrlw")
 theme_override_font_sizes/normal_font_size = 8
@@ -138,7 +138,7 @@ text = "SCORE:"
 layout_mode = 0
 offset_left = 173.0
 offset_top = 3.0
-offset_right = 238.0
+offset_right = 1373.0
 offset_bottom = 16.0
 theme_override_fonts/normal_font = ExtResource("1_qxrlw")
 theme_override_font_sizes/normal_font_size = 8
@@ -183,6 +183,28 @@ offset_bottom = 47.0
 theme_override_styles/background = SubResource("StyleBoxFlat_h7id1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fbgld")
 show_percentage = false
+
+[node name="Floor_text_j1" type="RichTextLabel" parent="UI" unique_id=1672755831]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 41.0
+offset_right = 160.0
+offset_bottom = 58.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_qxrlw")
+theme_override_font_sizes/normal_font_size = 5
+text = "TIER: 0"
+
+[node name="Floor_text_j2" type="RichTextLabel" parent="UI" unique_id=2121095938]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 41.0
+offset_right = 323.0
+offset_bottom = 58.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_qxrlw")
+theme_override_font_sizes/normal_font_size = 5
+text = "TIER: 0"
 
 [node name="Keys" type="Node2D" parent="." unique_id=1785960398]
 

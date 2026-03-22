@@ -13,7 +13,7 @@ func _ready() -> void:
 		#if is_instance_of(instance, Key_button):
 			#var key_instance: Key_button = instance
 			#Global.keys_state[key_instance.id_name].set("state", true)
-	Tools.debug_enable = true
+	# Tools.debug_enable = true
 	$AudioStreamPlayer.playing = true
 	$GameTimer.start()
 

@@ -19,9 +19,24 @@ var par_scale:int = 1
 var par_rotate:int = 200
 var par_speed:int = 10
 
+static var shader_prewarmed: bool = false
+
 func _ready() -> void:
 	$Placeholder.hide()
 	load_textures()
+	if not shader_prewarmed:
+		shader_prewarm()
+		shader_prewarmed = true
+
+func shader_prewarm() -> void:
+	# Force GPUParticles2D to compile its GPU shader path once at startup.
+	# Resolve bug on first emission when using GPU particles.
+	$GPUParticles2D.visible = false
+	$GPUParticles2D.emitting = true
+	call_deferred("_shader_prewarm_end")
+
+func _shader_prewarm_end() -> void:
+	$GPUParticles2D.emitting = false
 
 func load_textures():
 	t_up = load("res://sprite/keys/" + id_name.to_upper() + "-up.png")

@@ -6,7 +6,7 @@ func _ready() -> void:
 		$J1.show()
 		# WINNER : J1\nGlobal.score_j1
 		$J1/WINNER.text = "WINNER : J1\n" + "  " + str(int(Global.score_j1))
-		print(Global.score_j1)
+		#print(Global.score_j1)
 		$J1/LOSER.text = "LOSER : J2\n" + "  " + str(int(Global.score_j2))
 	else:
 		$J2.show()

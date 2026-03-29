@@ -119,7 +119,7 @@ func _process(delta: float) -> void:
 
 
 func _on_floor_powers_power_chosen(j:int) -> void:
-	print("Chosen on player " + str(j))
+	print("Chosen: player " + str(j))
 	if j == 1:
 		var anim: AnimationPlayer = $PalierGauche.get_node("AnimationPlayer")
 		Global.powers_available_j1 = false
@@ -132,7 +132,7 @@ func _on_floor_powers_power_chosen(j:int) -> void:
 
 func _on_game_timer_timeout() -> void:
 	Global.timer-=1
-	print(Global.timer)
+	#print(Global.timer)
 	if Global.timer <= 0 :
 		$GameTimer.stop()
 		if Global.score_j1 >= Global.score_j2 :
@@ -144,7 +144,7 @@ func _on_game_timer_timeout() -> void:
 
 func _on_event_manager_new_event() -> void:
 	# blink 3 times
-	var count_blink = 10
+	var count_blink = 5
 	var delay = 0.1
 	$AudioChallenge.playing = true
 	

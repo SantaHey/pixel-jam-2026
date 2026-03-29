@@ -1,7 +1,8 @@
 extends Node2D
 
 func _ready() -> void:
-	print("wow")
+	#print("wow")
+	pass
 
 func _process(delta: float) -> void:
 	

@@ -51,6 +51,8 @@ func start_new_event():
 
 	Global.text_j1 = displayed_text_j1
 	Global.text_j2 = displayed_text_j2
+	print(displayed_text_j1)
+	print(displayed_text_j2)
 	
 	new_event.emit()
 
@@ -94,7 +96,8 @@ func process_player_input(pressed_key: String):
 
 	# On passe la touche en minuscule pour correspondre à ton dictionnaire ("Q" devient "q")
 	var lower_key = pressed_key.to_lower()
-	
+	if lower_key == "apostrophe":
+		lower_key = "é"
 	if lower_key == "comma":
 		lower_key = ","
 	if lower_key == "period":
@@ -133,7 +136,7 @@ func process_player_input(pressed_key: String):
 			
 			# DISPLAY TEXT
 			# Text ERROR . Press only B 10 times in a row
-			displayed_text_j1 = "ERROR . Press only " + j1_event_target_key_string + " " + str(event_target_presses) + " times in a row."
+			displayed_text_j1 = "WRONG. Press only " + j1_event_target_key_string + " " + str(event_target_presses) + " times in a row."
 				
 	# 4. Logique pour le JOUEUR 2
 	elif player_id == 2:

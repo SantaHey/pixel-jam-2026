@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cbqljjgmopg8o"
-path="res://.godot/imported/HOMEMADE 2.ttf-671087978a962f411cc1c060081452e7.fontdata"
+uid="uid://don3yd6bfi3k5"
+path="res://.godot/imported/PixelifySans-Regular.ttf-02bd206c7a61fbee81278b6c1fa5aff3.fontdata"
 
 [deps]
 
-source_file="res://fonts/HOMEMADE 2.ttf"
-dest_files=["res://.godot/imported/HOMEMADE 2.ttf-671087978a962f411cc1c060081452e7.fontdata"]
+source_file="res://fonts/PixelifySans-Regular.ttf"
+dest_files=["res://.godot/imported/PixelifySans-Regular.ttf-02bd206c7a61fbee81278b6c1fa5aff3.fontdata"]
 
 [params]
 
@@ -27,15 +27,10 @@ subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
-fallbacks=[Resource("res://fonts/PixelifySans-Regular.ttf")]
+fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0)
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}
